@@ -1,80 +1,94 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class SanPham {
-    private String MaSP, LoaiSP, TenSP;
-    private float GiaNhap, GiaBan;
-    private String Anh;
-    private int SoLuongDaBan, SoLuongNhapKho, GhiChu;
+    private String maSP, loaiSP, tenSP;
+    private float giaNhap, giaBan;
+    private String anh;
+    private int soLuongDaBan, soLuongNhapKho, ghiChu;
+
+    public SanPham(String loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuongNhapKho, int ghiChu) {
+        this.loaiSP = loaiSP;
+        this.tenSP = tenSP;
+        this.giaNhap = giaNhap;
+        this.giaBan = giaBan;
+        this.anh = anh;
+        this.soLuongDaBan = soLuongDaBan;
+        this.soLuongNhapKho = soLuongNhapKho;
+        this.ghiChu = ghiChu;
+    }
+
+    public SanPham() {
+    }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String maSP) {
-        MaSP = maSP;
+        this.maSP = maSP;
     }
 
     public String getLoaiSP() {
-        return LoaiSP;
+        return loaiSP;
     }
 
     public void setLoaiSP(String loaiSP) {
-        LoaiSP = loaiSP;
+        this.loaiSP = loaiSP;
     }
 
     public String getTenSP() {
-        return TenSP;
+        return tenSP;
     }
 
     public void setTenSP(String tenSP) {
-        TenSP = tenSP;
+        this.tenSP = tenSP;
     }
 
     public float getGiaNhap() {
-        return GiaNhap;
+        return giaNhap;
     }
 
     public void setGiaNhap(float giaNhap) {
-        GiaNhap = giaNhap;
+        this.giaNhap = giaNhap;
     }
 
     public float getGiaBan() {
-        return GiaBan;
+        return giaBan;
     }
 
     public void setGiaBan(float giaBan) {
-        GiaBan = giaBan;
+        this.giaBan = giaBan;
     }
 
     public String getAnh() {
-        return Anh;
+        return anh;
     }
 
     public void setAnh(String anh) {
-        Anh = anh;
+        this.anh = anh;
     }
 
     public int getSoLuongDaBan() {
-        return SoLuongDaBan;
+        return soLuongDaBan;
     }
 
     public void setSoLuongDaBan(int soLuongDaBan) {
-        SoLuongDaBan = soLuongDaBan;
+        this.soLuongDaBan = soLuongDaBan;
     }
 
     public int getSoLuongNhapKho() {
-        return SoLuongNhapKho;
+        return soLuongNhapKho;
     }
 
     public void setSoLuongNhapKho(int soLuongNhapKho) {
-        SoLuongNhapKho = soLuongNhapKho;
+        this.soLuongNhapKho = soLuongNhapKho;
     }
 
     public int getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(int ghiChu) {
-        GhiChu = ghiChu;
+        this.ghiChu = ghiChu;
     }
 }

@@ -1,45 +1,57 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class KhachHang {
-    private String MaKhach,Anh,HoTen,SoDT,DiaChi;
+    private String maKhach,anh,hoTen,soDT,diaChi;
+
+
+
+    public KhachHang() {
+    }
+
+    public KhachHang(String anh, String hoTen, String soDT, String diaChi) {
+        this.anh = anh;
+        this.hoTen = hoTen;
+        this.soDT = soDT;
+        this.diaChi = diaChi;
+    }
 
     public String getMaKhach() {
-        return MaKhach;
+        return maKhach;
     }
 
     public void setMaKhach(String maKhach) {
-        MaKhach = maKhach;
+        this.maKhach = maKhach;
     }
 
     public String getAnh() {
-        return Anh;
+        return anh;
     }
 
     public void setAnh(String anh) {
-        Anh = anh;
+        this.anh = anh;
     }
 
     public String getHoTen() {
-        return HoTen;
+        return hoTen;
     }
 
     public void setHoTen(String hoTen) {
-        HoTen = hoTen;
+        this.hoTen = hoTen;
     }
 
     public String getSoDT() {
-        return SoDT;
+        return soDT;
     }
 
     public void setSoDT(String soDT) {
-        SoDT = soDT;
+        this.soDT = soDT;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
+        this.diaChi = diaChi;
     }
 }

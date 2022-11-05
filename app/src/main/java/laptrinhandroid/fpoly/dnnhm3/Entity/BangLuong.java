@@ -1,65 +1,77 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class BangLuong {
-    private String ID,MaNV;
-    private float LuongCB;
-    private int NgayCong;
-    private String ChuNhat;
-    private float UngLuong,NopPhat;
+    private String id,maNV;
+    private float luongCB;
+    private int ngayCong;
+    private int chuNhat;
+    private float ungLuong,nopPhat;
 
-    public String getID() {
-        return ID;
+    public BangLuong(String maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong, float nopPhat) {
+        this.maNV = maNV;
+        this.luongCB = luongCB;
+        this.ngayCong = ngayCong;
+        this.chuNhat = chuNhat;
+        this.ungLuong = ungLuong;
+        this.nopPhat = nopPhat;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String maNV) {
-        MaNV = maNV;
+        this.maNV = maNV;
     }
 
     public float getLuongCB() {
-        return LuongCB;
+        return luongCB;
     }
 
     public void setLuongCB(float luongCB) {
-        LuongCB = luongCB;
+        this.luongCB = luongCB;
     }
 
     public int getNgayCong() {
-        return NgayCong;
+        return ngayCong;
     }
 
     public void setNgayCong(int ngayCong) {
-        NgayCong = ngayCong;
+        this.ngayCong = ngayCong;
     }
 
-    public String getChuNhat() {
-        return ChuNhat;
+    public int getChuNhat() {
+        return chuNhat;
     }
 
-    public void setChuNhat(String chuNhat) {
-        ChuNhat = chuNhat;
+    public void setChuNhat(int chuNhat) {
+        this.chuNhat = chuNhat;
     }
 
     public float getUngLuong() {
-        return UngLuong;
+        return ungLuong;
     }
 
     public void setUngLuong(float ungLuong) {
-        UngLuong = ungLuong;
+        this.ungLuong = ungLuong;
     }
 
     public float getNopPhat() {
-        return NopPhat;
+        return nopPhat;
     }
 
     public void setNopPhat(float nopPhat) {
-        NopPhat = nopPhat;
+        this.nopPhat = nopPhat;
+    }
+
+    public BangLuong() {
     }
 }

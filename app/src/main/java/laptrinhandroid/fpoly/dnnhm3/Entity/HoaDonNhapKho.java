@@ -3,56 +3,67 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class HoaDonNhapKho {
-    private String MaHD, MaNV, MaSP;
-    private Date NgayNhap;
-    private int SoLuong;
-    private float TongTien;
+    private String maHDNhap, maNV, maSP;
+    private Date ngayNhap;
+    private int soLuong;
+    private float tongTien;
 
-    public String getMaHD() {
-        return MaHD;
+    public HoaDonNhapKho() {
     }
 
-    public void setMaHD(String maHD) {
-        MaHD = maHD;
+    public HoaDonNhapKho(String maNV, String maSP, Date ngayNhap, int soLuong, float tongTien) {
+        this.maNV = maNV;
+        this.maSP = maSP;
+        this.ngayNhap = ngayNhap;
+        this.soLuong = soLuong;
+        this.tongTien = tongTien;
+    }
+
+    public String getMaHDNhap() {
+        return maHDNhap;
+    }
+
+    public void setMaHDNhap(String maHDNhap) {
+        this.maHDNhap = maHDNhap;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String maNV) {
-        MaNV = maNV;
+        this.maNV = maNV;
     }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String maSP) {
-        MaSP = maSP;
+        this.maSP = maSP;
     }
 
     public Date getNgayNhap() {
-        return NgayNhap;
+        return ngayNhap;
     }
 
     public void setNgayNhap(Date ngayNhap) {
-        NgayNhap = ngayNhap;
+        this.ngayNhap = ngayNhap;
     }
 
     public int getSoLuong() {
-        return SoLuong;
+        return soLuong;
     }
 
     public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
+        this.soLuong = soLuong;
     }
 
     public float getTongTien() {
-        return TongTien;
+        return tongTien;
     }
 
     public void setTongTien(float tongTien) {
-        TongTien = tongTien;
+        this.tongTien = tongTien;
     }
 }

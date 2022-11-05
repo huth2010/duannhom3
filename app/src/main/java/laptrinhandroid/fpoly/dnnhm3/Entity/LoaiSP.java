@@ -1,21 +1,28 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class LoaiSP {
-    private String MaLoai,TenLoai;
+    private String maLoai,tenLoai;
+
+    public LoaiSP() {
+    }
+
+    public LoaiSP(String tenLoai) {
+        this.tenLoai = tenLoai;
+    }
 
     public String getMaLoai() {
-        return MaLoai;
+        return maLoai;
     }
 
     public void setMaLoai(String maLoai) {
-        MaLoai = maLoai;
+        this.maLoai = maLoai;
     }
 
     public String getTenLoai() {
-        return TenLoai;
+        return tenLoai;
     }
 
     public void setTenLoai(String tenLoai) {
-        TenLoai = tenLoai;
+        this.tenLoai = tenLoai;
     }
 }

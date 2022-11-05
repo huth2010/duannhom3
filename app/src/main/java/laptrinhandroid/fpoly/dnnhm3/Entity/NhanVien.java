@@ -1,102 +1,99 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
-public class NhanVien {
-    private String MaNv,Anh,HoTen,GioiTinh,SoDT,DiaChi,NgaySinh,NgayBD,AnhPhoToCC,AnhXNKcoTATS,Email,Passwords,token;
+import java.util.Date;
 
-    public String getMaNv() {
-        return MaNv;
+public class NhanVien {
+    private String maNv, anh, hoTen, gioiTinh, soDT, diaChi, anhPhoToCC, anhXNKcoTATS, email, passwords, token;
+    private Date ngayBD, ngaySinh;
+
+    public NhanVien() {
     }
 
-    public void setMaNv(String maNv) {
-        MaNv = maNv;
+    public NhanVien(String anh, String hoTen, String gioiTinh, String soDT, String diaChi, String anhPhoToCC, String anhXNKcoTATS, String email, String passwords, String token, Date ngayBD, Date ngaySinh) {
+        this.anh = anh;
+        this.hoTen = hoTen;
+        this.gioiTinh = gioiTinh;
+        this.soDT = soDT;
+        this.diaChi = diaChi;
+        this.anhPhoToCC = anhPhoToCC;
+        this.anhXNKcoTATS = anhXNKcoTATS;
+        this.email = email;
+        this.passwords = passwords;
+        this.token = token;
+        this.ngayBD = ngayBD;
+        this.ngaySinh = ngaySinh;
     }
 
     public String getAnh() {
-        return Anh;
+        return anh;
     }
 
     public void setAnh(String anh) {
-        Anh = anh;
+        this.anh = anh;
     }
 
     public String getHoTen() {
-        return HoTen;
+        return hoTen;
     }
 
     public void setHoTen(String hoTen) {
-        HoTen = hoTen;
+        this.hoTen = hoTen;
     }
 
     public String getGioiTinh() {
-        return GioiTinh;
+        return gioiTinh;
     }
 
     public void setGioiTinh(String gioiTinh) {
-        GioiTinh = gioiTinh;
+        this.gioiTinh = gioiTinh;
     }
 
     public String getSoDT() {
-        return SoDT;
+        return soDT;
     }
 
     public void setSoDT(String soDT) {
-        SoDT = soDT;
+        this.soDT = soDT;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
-    }
-
-    public String getNgaySinh() {
-        return NgaySinh;
-    }
-
-    public void setNgaySinh(String ngaySinh) {
-        NgaySinh = ngaySinh;
-    }
-
-    public String getNgayBD() {
-        return NgayBD;
-    }
-
-    public void setNgayBD(String ngayBD) {
-        NgayBD = ngayBD;
+        this.diaChi = diaChi;
     }
 
     public String getAnhPhoToCC() {
-        return AnhPhoToCC;
+        return anhPhoToCC;
     }
 
     public void setAnhPhoToCC(String anhPhoToCC) {
-        AnhPhoToCC = anhPhoToCC;
+        this.anhPhoToCC = anhPhoToCC;
     }
 
     public String getAnhXNKcoTATS() {
-        return AnhXNKcoTATS;
+        return anhXNKcoTATS;
     }
 
     public void setAnhXNKcoTATS(String anhXNKcoTATS) {
-        AnhXNKcoTATS = anhXNKcoTATS;
+        this.anhXNKcoTATS = anhXNKcoTATS;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPasswords() {
-        return Passwords;
+        return passwords;
     }
 
     public void setPasswords(String passwords) {
-        Passwords = passwords;
+        this.passwords = passwords;
     }
 
     public String getToken() {
@@ -106,4 +103,22 @@ public class NhanVien {
     public void setToken(String token) {
         this.token = token;
     }
+
+    public Date getNgayBD() {
+        return ngayBD;
+    }
+
+    public void setNgayBD(Date ngayBD) {
+        this.ngayBD = ngayBD;
+    }
+
+    public Date getNgaySinh() {
+        return ngaySinh;
+    }
+
+    public void setNgaySinh(Date ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
 }
+
+

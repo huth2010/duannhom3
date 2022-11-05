@@ -1,65 +1,77 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class ChiTietHoaDon {
-    private String ID, MaHD, MaSp;
-    private int SoLuong;
-    private float DonGia;
-    private String KhuyenMai;
-    private float ThanhTien;
+    private String id, maHD, maSp;
+    private int soLuong;
+    private float donGia;
+    private String khuyenMai;
+    private float thanhTien;
 
-    public String getID() {
-        return ID;
+    public ChiTietHoaDon() {
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMaHD() {
-        return MaHD;
+        return maHD;
     }
 
     public void setMaHD(String maHD) {
-        MaHD = maHD;
+        this.maHD = maHD;
     }
 
     public String getMaSp() {
-        return MaSp;
+        return maSp;
     }
 
     public void setMaSp(String maSp) {
-        MaSp = maSp;
+        this.maSp = maSp;
     }
 
     public int getSoLuong() {
-        return SoLuong;
+        return soLuong;
     }
 
     public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
+        this.soLuong = soLuong;
     }
 
     public float getDonGia() {
-        return DonGia;
+        return donGia;
     }
 
     public void setDonGia(float donGia) {
-        DonGia = donGia;
+        this.donGia = donGia;
     }
 
     public String getKhuyenMai() {
-        return KhuyenMai;
+        return khuyenMai;
     }
 
     public void setKhuyenMai(String khuyenMai) {
-        KhuyenMai = khuyenMai;
+        this.khuyenMai = khuyenMai;
     }
 
     public float getThanhTien() {
-        return ThanhTien;
+        return thanhTien;
     }
 
     public void setThanhTien(float thanhTien) {
-        ThanhTien = thanhTien;
+        this.thanhTien = thanhTien;
+    }
+
+    public ChiTietHoaDon(String maHD, String maSp, int soLuong, float donGia, String khuyenMai, float thanhTien) {
+        this.maHD = maHD;
+        this.maSp = maSp;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+        this.khuyenMai = khuyenMai;
+        this.thanhTien = thanhTien;
     }
 }

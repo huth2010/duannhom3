@@ -3,47 +3,59 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class HoaDonBan {
-    private String MaHD,MaNV,MaKH;
-    private Date NgayBan;
-    private float TongTien;
+    private String maHDBan,maNV,maKH;
+    private Date ngayBan;
 
-    public String getMaHD() {
-        return MaHD;
+    public HoaDonBan() {
     }
 
-    public void setMaHD(String maHD) {
-        MaHD = maHD;
+    private float tongTien;
+
+    public HoaDonBan(String maNV, String maKH, Date ngayBan, float tongTien) {
+        this.maNV = maNV;
+        this.maKH = maKH;
+        this.ngayBan = ngayBan;
+        this.tongTien = tongTien;
+    }
+
+    public String getMaHDBan() {
+        return maHDBan;
+    }
+
+    public void setMaHDBan(String maHDBan) {
+        this.maHDBan = maHDBan;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String maNV) {
-        MaNV = maNV;
+        this.maNV = maNV;
     }
 
     public String getMaKH() {
-        return MaKH;
+        return maKH;
     }
 
     public void setMaKH(String maKH) {
-        MaKH = maKH;
+        this.maKH = maKH;
     }
 
     public Date getNgayBan() {
-        return NgayBan;
+        return ngayBan;
     }
 
     public void setNgayBan(Date ngayBan) {
-        NgayBan = ngayBan;
+        this.ngayBan = ngayBan;
     }
 
     public float getTongTien() {
-        return TongTien;
+        return tongTien;
     }
 
     public void setTongTien(float tongTien) {
-        TongTien = tongTien;
+        this.tongTien = tongTien;
     }
+
 }

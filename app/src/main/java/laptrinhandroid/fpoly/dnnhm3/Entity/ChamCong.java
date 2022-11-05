@@ -3,46 +3,57 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class ChamCong {
-    private String MaCong,MaNV;
-    private Date GioBatDau,GioKetThuc,Ngay;
+    private String maCong,maNV;
+    private Date gioBatDau,gioKetThuc,ngay;
+
+    public ChamCong(String maNV, Date gioBatDau, Date gioKetThuc, Date ngay) {
+        this.maNV = maNV;
+        this.gioBatDau = gioBatDau;
+        this.gioKetThuc = gioKetThuc;
+        this.ngay = ngay;
+    }
 
     public String getMaCong() {
-        return MaCong;
+        return maCong;
     }
 
     public void setMaCong(String maCong) {
-        MaCong = maCong;
+        this.maCong = maCong;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String maNV) {
-        MaNV = maNV;
+        this.maNV = maNV;
     }
 
     public Date getGioBatDau() {
-        return GioBatDau;
+        return gioBatDau;
     }
 
     public void setGioBatDau(Date gioBatDau) {
-        GioBatDau = gioBatDau;
+        this.gioBatDau = gioBatDau;
     }
 
     public Date getGioKetThuc() {
-        return GioKetThuc;
+        return gioKetThuc;
     }
 
     public void setGioKetThuc(Date gioKetThuc) {
-        GioKetThuc = gioKetThuc;
+        this.gioKetThuc = gioKetThuc;
     }
 
     public Date getNgay() {
-        return Ngay;
+        return ngay;
     }
 
     public void setNgay(Date ngay) {
-        Ngay = ngay;
+        this.ngay = ngay;
     }
+
+    public ChamCong() {
+    }
+
 }
