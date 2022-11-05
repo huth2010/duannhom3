@@ -34,10 +34,32 @@ import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
 public class Dao<T> {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    public Dao () {
+    public Dao() {
 
     }
 
+    //collectionPath là cột đầu tiên trong firebase(Như tên bảng được viết trong Class Collection)
+    //obj là đối tượng được truyền vào như new BangLuong(...) đầy đủ tham số nhưng k có khóa chính
+    //Khóa chính sẽ được update sau khi obj tải lên fiirebase thành công
+    //doucument sẽ gen tự động(cột thứ hai trên firebase (khóa chính))
+    //tham số cuối trong method chỉ lấy kết quả trả về khi thành công hoặc thất bại như hai thằng này để xử lí bên Main
+    // .addOnSuccessListener( )
+    //  addOnFailureListener( );
+    //khi get list dữ liêu lấy dữ liệu bảng nào thì truyền class và Collection tương ứng
+    //  new Dao().getListObject(BangLuong.class, Collection.BANGLUONG, new Dao.getObject() {
+    //            @Override
+    //            public void OnSuccess(List<Object> objects) {
+    //                List<BangLuong> bangLuongs= (List<BangLuong>) (Object) objects;
+    //                Toast.makeText(MainActivity.this, bangLuongs.get(0).getId()+"", Toast.LENGTH_SHORT).show();
+    //            }
+    //
+    //            @Override
+    //            public void onFailure(@NonNull Exception e) {
+    //
+    //            }
+    //        });
+    //lưu ý là khi đẩy hoặc lấy dữ liệu thành công thì mới xử lí sự kiện liên quan tới nó
+    //chứ nó chưa trả kết quả mà đã get ra thì ...
     public void addObject(Object obj, String collectionPath, addObject addObject) {
         try {
             db.collection(collectionPath)
@@ -50,7 +72,7 @@ public class Dao<T> {
                     })
                     .addOnFailureListener(addObject::onFailure);
         } catch (Exception e) {
-            Log.d("sssssssss", "addObject: "+e.getMessage());
+            Log.d("sssssssss", "addObject: " + e.getMessage());
 
         }
     }
@@ -101,8 +123,8 @@ public class Dao<T> {
         }
     }
 
-    private String check(String collectionPath) {
-        switch (collectionPath) {
+    private String check(String key) {
+        switch (key) {
             case "NhanVien":
                 return "maNv";
             case "BangLuong":
