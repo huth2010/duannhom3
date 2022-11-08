@@ -4,7 +4,17 @@ import java.util.Date;
 
 public class ChamCong {
     private String maCong,maNV;
-    private Date gioBatDau,gioKetThuc,ngay;
+    private Date gioBatDau,gioKetThuc;
+    private Date  ngay;
+    private Boolean xacNhanChamCong;
+
+    public Boolean getXacNhanChamCong() {
+        return xacNhanChamCong;
+    }
+
+    public void setXacNhanChamCong(Boolean xacNhanChamCong) {
+        this.xacNhanChamCong = xacNhanChamCong;
+    }
 
     public ChamCong(String maNV, Date gioBatDau, Date gioKetThuc, Date ngay) {
         this.maNV = maNV;

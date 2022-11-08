@@ -4,17 +4,25 @@ public class SanPham {
     private String maSP, loaiSP, tenSP;
     private float giaNhap, giaBan;
     private String anh;
-    private int soLuongDaBan, soLuongNhapKho, ghiChu;
+    private int soLuongDaBan, soLuong, ghiChu;
 
-    public SanPham(String loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuongNhapKho, int ghiChu) {
+    public SanPham(String loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuong, int ghiChu) {
         this.loaiSP = loaiSP;
         this.tenSP = tenSP;
         this.giaNhap = giaNhap;
         this.giaBan = giaBan;
         this.anh = anh;
         this.soLuongDaBan = soLuongDaBan;
-        this.soLuongNhapKho = soLuongNhapKho;
+        this.soLuong = soLuong;
         this.ghiChu = ghiChu;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
     public SanPham() {
@@ -76,13 +84,7 @@ public class SanPham {
         this.soLuongDaBan = soLuongDaBan;
     }
 
-    public int getSoLuongNhapKho() {
-        return soLuongNhapKho;
-    }
 
-    public void setSoLuongNhapKho(int soLuongNhapKho) {
-        this.soLuongNhapKho = soLuongNhapKho;
-    }
 
     public int getGhiChu() {
         return ghiChu;

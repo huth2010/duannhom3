@@ -5,15 +5,15 @@ public class BangLuong {
     private float luongCB;
     private int ngayCong;
     private int chuNhat;
-    private float ungLuong,nopPhat;
+    private float ungLuong;
 
-    public BangLuong(String maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong, float nopPhat) {
+    public BangLuong(String maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong ) {
         this.maNV = maNV;
         this.luongCB = luongCB;
         this.ngayCong = ngayCong;
         this.chuNhat = chuNhat;
         this.ungLuong = ungLuong;
-        this.nopPhat = nopPhat;
+
     }
 
     public String getId() {
@@ -64,13 +64,7 @@ public class BangLuong {
         this.ungLuong = ungLuong;
     }
 
-    public float getNopPhat() {
-        return nopPhat;
-    }
 
-    public void setNopPhat(float nopPhat) {
-        this.nopPhat = nopPhat;
-    }
 
     public BangLuong() {
     }
