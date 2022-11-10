@@ -1,7 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class SanPham {
-    private String maSP, loaiSP, tenSP;
+    private int maSP;
+    private String  loaiSP, tenSP;
     private float giaNhap, giaBan;
     private String anh;
     private int soLuongDaBan, soLuong, ghiChu;
@@ -28,11 +29,11 @@ public class SanPham {
     public SanPham() {
     }
 
-    public String getMaSP() {
+    public int getMaSP() {
         return maSP;
     }
 
-    public void setMaSP(String maSP) {
+    public void setMaSP(int maSP) {
         this.maSP = maSP;
     }
 

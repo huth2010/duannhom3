@@ -3,10 +3,19 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class NhanVien {
-    private String maNv, anh, hoTen, gioiTinh, soDT, diaChi, anhPhoToCC, anhXNKcoTATS, email, passwords, token;
+    private   int maNv;
+    private  String anh, hoTen, gioiTinh, soDT, diaChi, anhPhoToCC, anhXNKcoTATS, email, passwords, token;
     private Date ngayBD, ngaySinh;
 
     public NhanVien() {
+    }
+
+    public int getMaNv() {
+        return maNv;
+    }
+
+    public void setMaNv(int maNv) {
+        this.maNv = maNv;
     }
 
     public NhanVien(String anh, String hoTen, String gioiTinh, String soDT, String diaChi, String anhPhoToCC, String anhXNKcoTATS, String email, String passwords, String token, Date ngayBD, Date ngaySinh) {

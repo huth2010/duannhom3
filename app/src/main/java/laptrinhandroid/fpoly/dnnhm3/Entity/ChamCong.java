@@ -3,7 +3,8 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class ChamCong {
-    private String maCong,maNV;
+    private int maCong;
+    private String  maNV;
     private Date gioBatDau,gioKetThuc;
     private Date  ngay;
     private Boolean xacNhanChamCong;
@@ -23,11 +24,11 @@ public class ChamCong {
         this.ngay = ngay;
     }
 
-    public String getMaCong() {
+    public int getMaCong() {
         return maCong;
     }
 
-    public void setMaCong(String maCong) {
+    public void setMaCong(int maCong) {
         this.maCong = maCong;
     }
 

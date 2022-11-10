@@ -1,7 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class BangLuong {
-    private String id,maNV;
+    private int id;
+    private String  maNV;
     private float luongCB;
     private int ngayCong;
     private int chuNhat;
@@ -16,11 +17,11 @@ public class BangLuong {
 
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

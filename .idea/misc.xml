@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/nguye/DnNhm3/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/nguye/DnNhm3/app/src/main/res/drawable/a.xml" value="0.1945" />
+        <entry key="..\:/Users/nguye/DnNhm3/app/src/main/res/drawable/custom_itemlich.xml" value="0.1945" />
+        <entry key="..\:/Users/nguye/DnNhm3/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/nguye/DnNhm3/app/src/main/res/layout/item_lich.xml" value="0.5" />
       </map>
     </option>
   </component>

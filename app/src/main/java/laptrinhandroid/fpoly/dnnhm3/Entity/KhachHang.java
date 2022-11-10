@@ -1,7 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class KhachHang {
-    private String maKhach,anh,hoTen,soDT,diaChi;
+    private int maKhach;
+    private String  anh,hoTen,soDT,diaChi;
 
 
 
@@ -15,11 +16,11 @@ public class KhachHang {
         this.diaChi = diaChi;
     }
 
-    public String getMaKhach() {
+    public int getMaKhach() {
         return maKhach;
     }
 
-    public void setMaKhach(String maKhach) {
+    public void setMaKhach(int maKhach) {
         this.maKhach = maKhach;
     }
 

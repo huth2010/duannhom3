@@ -1,7 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class ChiTietHoaDonNhap {
-    private String id, maHD, maSp,anh,tenSP;
+    private int id;
+    private String   maHD, maSp,anh,tenSP;
     private int soLuong;
     private float donGia;
      private float thanhTien;
@@ -25,11 +26,11 @@ public class ChiTietHoaDonNhap {
     public ChiTietHoaDonNhap() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -3,7 +3,8 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class HoaDonBan {
-    private String maHDBan,maNV,maKH;
+    private int maHDBan;
+    private String  maNV,maKH;
     private Date ngayBan;
 
     public HoaDonBan() {
@@ -18,11 +19,11 @@ public class HoaDonBan {
         this.tongTien = tongTien;
     }
 
-    public String getMaHDBan() {
+    public int getMaHDBan() {
         return maHDBan;
     }
 
-    public void setMaHDBan(String maHDBan) {
+    public void setMaHDBan(int maHDBan) {
         this.maHDBan = maHDBan;
     }
 
