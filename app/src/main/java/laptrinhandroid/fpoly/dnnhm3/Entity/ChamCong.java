@@ -7,13 +7,13 @@ public class ChamCong {
     private int  maNV;
     private Date gioBatDau,gioKetThuc;
     private Date  ngay;
-    private Boolean xacNhanChamCong;
+    private int xacNhanChamCong;
 
-    public Boolean getXacNhanChamCong() {
+    public int getXacNhanChamCong() {
         return xacNhanChamCong;
     }
 
-    public void setXacNhanChamCong(Boolean xacNhanChamCong) {
+    public void setXacNhanChamCong(int xacNhanChamCong) {
         this.xacNhanChamCong = xacNhanChamCong;
     }
 

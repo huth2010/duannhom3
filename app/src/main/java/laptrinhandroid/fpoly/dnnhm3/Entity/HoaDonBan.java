@@ -6,11 +6,11 @@ public class HoaDonBan {
     private int maHDBan;
     private int  maNV,maKH;
     private Date ngayBan;
-
+private float tongTien;
     public HoaDonBan() {
     }
 
-    private float tongTien;
+
 
     public void setMaNV(int maNV) {
         this.maNV = maNV;
