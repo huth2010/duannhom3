@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ChamCong {
     private int maCong;
-    private String  maNV;
+    private int  maNV;
     private Date gioBatDau,gioKetThuc;
     private Date  ngay;
     private Boolean xacNhanChamCong;
@@ -17,7 +17,7 @@ public class ChamCong {
         this.xacNhanChamCong = xacNhanChamCong;
     }
 
-    public ChamCong(String maNV, Date gioBatDau, Date gioKetThuc, Date ngay) {
+    public ChamCong(int maNV, Date gioBatDau, Date gioKetThuc, Date ngay) {
         this.maNV = maNV;
         this.gioBatDau = gioBatDau;
         this.gioKetThuc = gioKetThuc;
@@ -32,11 +32,11 @@ public class ChamCong {
         this.maCong = maCong;
     }
 
-    public String getMaNV() {
+    public int getMaNV() {
         return maNV;
     }
 
-    public void setMaNV(String maNV) {
+    public void setMaNV(int maNV) {
         this.maNV = maNV;
     }
 

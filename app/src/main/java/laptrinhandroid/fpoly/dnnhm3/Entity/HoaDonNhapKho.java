@@ -3,7 +3,7 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 import java.util.Date;
 
 public class HoaDonNhapKho {  private int maHDNhap;
-    private String    maNV, maSP;
+    private int    maNV, maSP;
     private Date ngayNhap;
     private int soLuong;
     private float tongTien;
@@ -11,12 +11,28 @@ public class HoaDonNhapKho {  private int maHDNhap;
     public HoaDonNhapKho() {
     }
 
-    public HoaDonNhapKho(String maNV, String maSP, Date ngayNhap, int soLuong, float tongTien) {
+    public HoaDonNhapKho(int maNV, int maSP, Date ngayNhap, int soLuong, float tongTien) {
         this.maNV = maNV;
         this.maSP = maSP;
         this.ngayNhap = ngayNhap;
         this.soLuong = soLuong;
         this.tongTien = tongTien;
+    }
+
+    public int getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(int maNV) {
+        this.maNV = maNV;
+    }
+
+    public int getMaSP() {
+        return maSP;
+    }
+
+    public void setMaSP(int maSP) {
+        this.maSP = maSP;
     }
 
     public int getMaHDNhap() {
@@ -25,22 +41,6 @@ public class HoaDonNhapKho {  private int maHDNhap;
 
     public void setMaHDNhap(int maHDNhap) {
         this.maHDNhap = maHDNhap;
-    }
-
-    public String getMaNV() {
-        return maNV;
-    }
-
-    public void setMaNV(String maNV) {
-        this.maNV = maNV;
-    }
-
-    public String getMaSP() {
-        return maSP;
-    }
-
-    public void setMaSP(String maSP) {
-        this.maSP = maSP;
     }
 
     public Date getNgayNhap() {

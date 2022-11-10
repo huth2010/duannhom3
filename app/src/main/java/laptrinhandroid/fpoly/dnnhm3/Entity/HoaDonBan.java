@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class HoaDonBan {
     private int maHDBan;
-    private String  maNV,maKH;
+    private int  maNV,maKH;
     private Date ngayBan;
 
     public HoaDonBan() {
@@ -12,7 +12,15 @@ public class HoaDonBan {
 
     private float tongTien;
 
-    public HoaDonBan(String maNV, String maKH, Date ngayBan, float tongTien) {
+    public void setMaNV(int maNV) {
+        this.maNV = maNV;
+    }
+
+    public void setMaKH(int maKH) {
+        this.maKH = maKH;
+    }
+
+    public HoaDonBan(int maNV, int maKH, Date ngayBan, float tongTien) {
         this.maNV = maNV;
         this.maKH = maKH;
         this.ngayBan = ngayBan;
@@ -27,20 +35,12 @@ public class HoaDonBan {
         this.maHDBan = maHDBan;
     }
 
-    public String getMaNV() {
+    public int getMaNV() {
         return maNV;
     }
 
-    public void setMaNV(String maNV) {
-        this.maNV = maNV;
-    }
-
-    public String getMaKH() {
+    public int getMaKH() {
         return maKH;
-    }
-
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
     }
 
     public Date getNgayBan() {

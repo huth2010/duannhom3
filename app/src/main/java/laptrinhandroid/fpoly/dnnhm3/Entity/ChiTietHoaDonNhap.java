@@ -1,8 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class ChiTietHoaDonNhap {
-    private int id;
-    private String   maHD, maSp,anh,tenSP;
+    private int id,maHD, maSp;
+    private String   anh,tenSP;
     private int soLuong;
     private float donGia;
      private float thanhTien;
@@ -34,21 +34,7 @@ public class ChiTietHoaDonNhap {
         this.id = id;
     }
 
-    public String getMaHD() {
-        return maHD;
-    }
 
-    public void setMaHD(String maHD) {
-        this.maHD = maHD;
-    }
-
-    public String getMaSp() {
-        return maSp;
-    }
-
-    public void setMaSp(String maSp) {
-        this.maSp = maSp;
-    }
 
     public int getSoLuong() {
         return soLuong;
@@ -66,7 +52,23 @@ public class ChiTietHoaDonNhap {
         this.donGia = donGia;
     }
 
-    public ChiTietHoaDonNhap(String maHD, String maSp, String anh, String tenSP, int soLuong, float donGia, float thanhTien) {
+    public int getMaHD() {
+        return maHD;
+    }
+
+    public void setMaHD(int maHD) {
+        this.maHD = maHD;
+    }
+
+    public int getMaSp() {
+        return maSp;
+    }
+
+    public void setMaSp(int maSp) {
+        this.maSp = maSp;
+    }
+
+    public ChiTietHoaDonNhap(int maHD, int maSp, String anh, String tenSP, int soLuong, float donGia, float thanhTien) {
         this.maHD = maHD;
         this.maSp = maSp;
         this.anh = anh;
