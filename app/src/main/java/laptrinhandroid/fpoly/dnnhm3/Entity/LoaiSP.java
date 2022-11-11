@@ -3,7 +3,7 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 public class LoaiSP {
     private int maLoai;
     private String  tenLoai;
-
+//
     public LoaiSP() {
     }
 
