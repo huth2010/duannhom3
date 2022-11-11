@@ -17,6 +17,15 @@ public class BangLuong {
 
     }
 
+    public BangLuong(int id, int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong) {
+        this.id = id;
+        this.maNV = maNV;
+        this.luongCB = luongCB;
+        this.ngayCong = ngayCong;
+        this.chuNhat = chuNhat;
+        this.ungLuong = ungLuong;
+    }
+
     public int getId() {
         return id;
     }

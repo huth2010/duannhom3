@@ -67,4 +67,12 @@ public class ChamCong {
     public ChamCong() {
     }
 
+    public ChamCong(int maCong, int maNV, Date gioBatDau, Date gioKetThuc, Date ngay, int xacNhanChamCong) {
+        this.maCong = maCong;
+        this.maNV = maNV;
+        this.gioBatDau = gioBatDau;
+        this.gioKetThuc = gioKetThuc;
+        this.ngay = ngay;
+        this.xacNhanChamCong = xacNhanChamCong;
+    }
 }

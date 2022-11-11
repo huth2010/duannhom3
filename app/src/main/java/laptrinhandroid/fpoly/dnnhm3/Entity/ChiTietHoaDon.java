@@ -1,8 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class ChiTietHoaDon {
-    private int id,maHD, maSp;
-    private String    anh,tenSP;
+    private int id, maHD, maSp;
+    private String anh, tenSP;
     private int soLuong;
     private float donGia;
     private String khuyenMai;

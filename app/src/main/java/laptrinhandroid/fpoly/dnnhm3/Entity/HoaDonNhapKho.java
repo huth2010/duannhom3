@@ -2,8 +2,9 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 import java.util.Date;
 
-public class HoaDonNhapKho {  private int maHDNhap;
-    private int    maNV, maSP;
+public class HoaDonNhapKho {
+    private int maHDNhap;
+    private int maNV, maSP;
     private Date ngayNhap;
     private int soLuong;
     private float tongTien;

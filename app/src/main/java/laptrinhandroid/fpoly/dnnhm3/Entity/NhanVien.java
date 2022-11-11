@@ -10,12 +10,30 @@ public class NhanVien {
     public NhanVien() {
     }
 
+
+
     public int getMaNv() {
         return maNv;
     }
 
     public void setMaNv(int maNv) {
         this.maNv = maNv;
+    }
+
+    public NhanVien(int maNv, String anh, String hoTen, String gioiTinh, String soDT, String diaChi, String anhPhoToCC, String anhXNKcoTATS, String email, String passwords, String token, Date ngayBD, Date ngaySinh) {
+        this.maNv = maNv;
+        this.anh = anh;
+        this.hoTen = hoTen;
+        this.gioiTinh = gioiTinh;
+        this.soDT = soDT;
+        this.diaChi = diaChi;
+        this.anhPhoToCC = anhPhoToCC;
+        this.anhXNKcoTATS = anhXNKcoTATS;
+        this.email = email;
+        this.passwords = passwords;
+        this.token = token;
+        this.ngayBD = ngayBD;
+        this.ngaySinh = ngaySinh;
     }
 
     public NhanVien(String anh, String hoTen, String gioiTinh, String soDT, String diaChi, String anhPhoToCC, String anhXNKcoTATS, String email, String passwords, String token, Date ngayBD, Date ngaySinh) {
