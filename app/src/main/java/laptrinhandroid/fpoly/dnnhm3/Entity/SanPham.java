@@ -2,12 +2,25 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class SanPham {
     private int maSP, loaiSP;
-    private String   tenSP;
+    private String tenSP;
     private float giaNhap, giaBan;
     private String anh;
     private int soLuongDaBan, soLuong;
-private String   ghiChu;
+    private String ghiChu;
+
     public SanPham(int loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuong, String ghiChu) {
+        this.loaiSP = loaiSP;
+        this.tenSP = tenSP;
+        this.giaNhap = giaNhap;
+        this.giaBan = giaBan;
+        this.anh = anh;
+        this.soLuongDaBan = soLuongDaBan;
+        this.soLuong = soLuong;
+        this.ghiChu = ghiChu;
+    }
+
+    public SanPham(int maSP, int loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuong, String ghiChu) {
+        this.maSP = maSP;
         this.loaiSP = loaiSP;
         this.tenSP = tenSP;
         this.giaNhap = giaNhap;
@@ -84,7 +97,6 @@ private String   ghiChu;
     public void setSoLuongDaBan(int soLuongDaBan) {
         this.soLuongDaBan = soLuongDaBan;
     }
-
 
 
     public String getGhiChu() {
