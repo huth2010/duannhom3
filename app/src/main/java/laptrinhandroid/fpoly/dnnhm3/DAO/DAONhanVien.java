@@ -27,8 +27,7 @@ public class DAONhanVien {
 
     public boolean addNhanVien(NhanVien nhanVien) throws SQLException {
         Statement statement = objConn.createStatement();
-        String s = "Insert into KhachHang(anh,hoTen,soDT,diaChi) values ('" + nhanVien.getAnh() + "','" + nhanVien.getHoTen() + "','" + nhanVien.getSoDT() + "','" + nhanVien.getDiaChi() + "')";
-        String s1 = "Insert into NhanVien(anh, hoTen,gioiTinh,soDT,diaChi,anhPhoToCC,anhXNKcoTATS,email,passwords,token,ngayBD,ngaySinh) values (" +
+         String s1 = "Insert into NhanVien(anh, hoTen,gioiTinh,soDT,diaChi,anhPhoToCC,anhXNKcoTATS,email,passwords,token,ngayBD,ngaySinh) values (" +
                 "'" + nhanVien.getAnh() + "'," +
                 "'" + nhanVien.getHoTen() + "'," +
                 "'" + nhanVien.getGioiTinh() + "'," +

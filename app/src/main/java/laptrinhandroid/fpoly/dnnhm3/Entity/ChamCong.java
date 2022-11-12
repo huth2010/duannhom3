@@ -1,6 +1,6 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ChamCong {
     private int maCong;

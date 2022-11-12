@@ -1,7 +1,6 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
-import java.util.Date;
-
+import java.sql.Date;
 public class HoaDonNhapKho {
     private int maHDNhap;
     private int maNV, maSP;

@@ -1,15 +1,15 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class HoaDonBan {
     private int maHDBan;
-    private int  maNV,maKH;
+    private int maNV, maKH;
     private Date ngayBan;
-private float tongTien;
+    private float tongTien;
+
     public HoaDonBan() {
     }
-
 
 
     public void setMaNV(int maNV) {
