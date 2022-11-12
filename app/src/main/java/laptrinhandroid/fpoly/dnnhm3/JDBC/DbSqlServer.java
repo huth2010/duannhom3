@@ -16,7 +16,7 @@ public class DbSqlServer {
         StrictMode.setThreadPolicy(threadPolicy);
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            String connectUrl = "jdbc:jtds:sqlserver://103.179.188.76:1433;databasename=CP17303_n03;user=CP17303_n03;password=2992003;";
+            @SuppressLint("AuthLeak") String connectUrl = "jdbc:jtds:sqlserver://192.168.1.117:1433;databasename=CP17303_n03;user=CP17303_n03;password=2992003";
             this.connection =
                     DriverManager.getConnection(connectUrl);
             Log.d("sssssss", "openConnect: OK");

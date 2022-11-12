@@ -5,9 +5,9 @@ public class SanPham {
     private String   tenSP;
     private float giaNhap, giaBan;
     private String anh;
-    private int soLuongDaBan, soLuong, ghiChu;
-
-    public SanPham(int loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuong, int ghiChu) {
+    private int soLuongDaBan, soLuong;
+private String   ghiChu;
+    public SanPham(int loaiSP, String tenSP, float giaNhap, float giaBan, String anh, int soLuongDaBan, int soLuong, String ghiChu) {
         this.loaiSP = loaiSP;
         this.tenSP = tenSP;
         this.giaNhap = giaNhap;
@@ -87,11 +87,11 @@ public class SanPham {
 
 
 
-    public int getGhiChu() {
+    public String getGhiChu() {
         return ghiChu;
     }
 
-    public void setGhiChu(int ghiChu) {
+    public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
 }
