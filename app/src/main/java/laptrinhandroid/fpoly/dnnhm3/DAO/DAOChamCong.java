@@ -1,5 +1,7 @@
 package laptrinhandroid.fpoly.dnnhm3.DAO;
 
+import android.util.Log;
+
 import com.google.type.DateTime;
 
 import java.sql.Connection;
@@ -68,6 +70,7 @@ public class DAOChamCong {
         // Thực thi câu lệnh SQL trả về đối tượng ResultSet. // Mọi kết quả trả về sẽ được lưu trong ResultSet
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
+            Log.d("sssss", "getListChamCong: "+rs.getDate(5)+rs.getInt(6));
             list.add(new ChamCong(rs.getInt(1), rs.getInt(2),  rs.getTime(3),   rs.getTime(4), rs.getDate(5), rs.getInt(6)));// Đọc dữ liệu từ ResultSet
         }
         objConn.close();// Đóng kết nối

@@ -13,8 +13,7 @@ public class ConvertImg {
     public static String convertBitmapToBaseString(Bitmap bitmap) {
         ByteArrayOutputStream fileInputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileInputStream);
-        Log.d("hhhhhhh", "convertBitmapToBaseString: "+Base64.encodeToString(fileInputStream.toByteArray(), Base64.DEFAULT));
-        return Base64.encodeToString(fileInputStream.toByteArray(), Base64.DEFAULT);
+         return Base64.encodeToString(fileInputStream.toByteArray(), Base64.DEFAULT);
     }
     public static Bitmap convertBaseStringToBitmap(String baseString) {
         byte b[]=Base64.decode(baseString,Base64.DEFAULT);

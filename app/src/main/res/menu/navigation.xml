@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Quản lí của hàng">
+        <menu>
+            <item
+                android:icon="@drawable/invoice"
+                android:title="Đơn hàng"
+                android:id="@+id/donHang"/>
+            <item
+                android:icon="@drawable/products"
+                android:title="Sản phẩm"
+                android:id="@+id/sanPham"/>
+            <item
+                android:icon="@drawable/warehouse"
+                android:title="Quản lí kho"
+                android:id="@+id/qlKho"/>
+            <item
+                android:icon="@drawable/analytics"
+                android:title="Báo cáo thống kê"
+                android:id="@+id/thongKe"/>
+            <item
+                android:icon="@drawable/group"
+                android:title="Quản lí nhân viên"
+                android:id="@+id/qlNhanVien"/>
+        </menu>
+    </item>
+    <item android:title="">
+        <menu>
+            <item
+                android:icon="@drawable/exchange"
+                android:title="Đổi mật khẩu"
+                android:id="@+id/doiMK"/>
+            <item
+                android:icon="@drawable/logout"
+                android:title="Đăng xuất"
+                android:id="@+id/logout"/>
+        </menu>
+    </item>
+</menu>

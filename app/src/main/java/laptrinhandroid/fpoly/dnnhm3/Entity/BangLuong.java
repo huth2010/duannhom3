@@ -7,6 +7,15 @@ public class BangLuong {
     private int ngayCong;
     private int chuNhat;
     private float ungLuong;
+private float thuong;
+
+    public float getThuong() {
+        return thuong;
+    }
+
+    public void setThuong(float thuong) {
+        this.thuong = thuong;
+    }
 
     public BangLuong(int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong ) {
         this.maNV = maNV;
