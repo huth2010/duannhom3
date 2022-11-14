@@ -4,7 +4,7 @@
     android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/teal_200"
+    android:background="#8ED87C"
 
     android:padding="15dp">
 

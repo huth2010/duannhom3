@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/bottom_sheet_behavior"
     tools:context=".Activity.GiaoDienChinh"
 
     >
@@ -23,7 +22,7 @@
                 android:id="@+id/toolBar"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/teal_200"
+                android:background="#8ED87C"
                 app:title="Quản lí của hàng"
                 app:titleTextColor="@color/white" />
 
@@ -36,17 +35,178 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#E4DADA"
+                    android:background="#FAFAFA"
                     android:orientation="vertical">
 
-                    <RelativeLayout
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:layout_marginTop="18dp"
+                        android:background="#FAFAFA"
+                        android:orientation="vertical"
 
                         >
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:text="Quản lí của hàng"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="#FAFAFA"
+                            android:columnCount="3"
+                            android:rowCount="2"
+
+                            android:useDefaultMargins="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <ImageButton
+                                    android:layout_width="81dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="15dp"
+                                    android:background="@drawable/store" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+
+                                app:cardUseCompatPadding="true">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:background="@drawable/invoice" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:background="@drawable/products" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+
+                                app:cardUseCompatPadding="true">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:background="@drawable/warehouse" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:background="@drawable/analytics" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="15dp"
+                                    android:background="@drawable/group" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </GridLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:text="Tin Tức thị trường"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/viewPager2"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" />
+
+                            <me.relex.circleindicator.CircleIndicator3
+                                android:layout_width="58dp"
+                                android:layout_height="33dp"
+                                android:id="@+id/circleIndicator3"
+                                android:layout_gravity="center|bottom"
+                                android:layout_margin="4dp"
+                                 app:ci_drawable="@drawable/a" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_marginBottom="100dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:id="@+id/t"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
@@ -56,14 +216,14 @@
                             android:text="Thưởng Top"
                             android:textColor="@color/black"
                             android:textSize="18dp"
-                            android:textStyle="bold"
-                            android:id="@+id/t"/>
-<Spinner
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_toRightOf="@id/t"
-     android:layout_alignBottom="@id/t"
-    />
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/t"
+                            android:layout_toRightOf="@id/t" />
+
                         <androidx.cardview.widget.CardView
                             android:id="@+id/hoi"
                             android:layout_width="wrap_content"
@@ -87,12 +247,12 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="100dp"
-                            android:visibility="gone"
                             android:layout_height="100dp"
                             android:layout_below="@+id/hoi"
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="3dp"
                             android:layout_marginRight="15dp"
+                            android:visibility="gone"
                             app:cardCornerRadius="7dp">
 
                         </androidx.cardview.widget.CardView>
@@ -103,19 +263,19 @@
                             android:layout_below="@+id/hoi">
 
                             <View
+                                android:id="@+id/v"
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_marginStart="15dp"
                                 android:layout_marginTop="15dp"
                                 android:layout_marginEnd="15dp"
                                 android:layout_marginBottom="15dp"
-                                android:background="#B3A7A7"
-                                android:id="@+id/v"/>
+                                android:background="#B3A7A7" />
 
                             <LinearLayout
-                                android:layout_below="@id/v"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/v"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -161,10 +321,10 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_below="@id/v"
                                 android:id="@+id/a"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/v"
                                 android:layout_alignParentRight="true"
                                 android:gravity="right"
                                 android:orientation="vertical">
@@ -226,147 +386,6 @@
                         </RelativeLayout>
 
                     </RelativeLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:layout_marginTop="18dp"
-
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Quản lí của hàng"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold" />
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-         android:columnCount="3"
-         android:rowCount="2"
-        android:useDefaultMargins="true">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
-
-            <ImageButton
-                android:layout_width="81dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/store" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="10dp"
-
-            app:cardUseCompatPadding="true">
-
-            <ImageButton
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:background="@drawable/invoice" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
-
-            <ImageButton
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:background="@drawable/products" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="10dp"
-
-            app:cardUseCompatPadding="true">
-
-            <ImageButton
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:background="@drawable/warehouse" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
-
-            <ImageButton
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:background="@drawable/analytics" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
-
-            <ImageButton
-                android:layout_width="match_parent"
-
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:background="@drawable/group" />
-
-        </androidx.cardview.widget.CardView>
-
-    </GridLayout>
-
-</LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
-                        android:background="@color/white"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="15dp"
-                            android:text="Tin Tức thị trường"
-                            android:textColor="@color/black"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-
-                        <androidx.viewpager2.widget.ViewPager2
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp" />
-                    </LinearLayout>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </LinearLayout>
@@ -411,7 +430,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/store"
+            android:src="@drawable/ic_baseline_content_paste_24"
+android:backgroundTint="#8ED87C"
 
             app:layout_anchor="@id/bottomAppBar" />
 

@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -40,15 +41,16 @@ public class MainActivity extends AppCompatActivity {
     MaterialCalendarView calendarView;
     List<ChamCong> chamCongs;
 Toolbar toolbar;
+ViewPager2 viewPager2;
     @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar=findViewById(R.id.toolBar);
-        setToolBar();
-//        calendarView = findViewById(R.id.calendarView);
+
+
+        //        calendarView = findViewById(R.id.calendarView);
 ////alo 123
 //// calendarView = findViewById(R.id.calendarView);
 ////if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
@@ -77,12 +79,7 @@ Toolbar toolbar;
 
     }
 
-    private void setToolBar() {
-      setSupportActionBar(toolbar);
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.a);
-    }
+
 
 
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
