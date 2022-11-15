@@ -11,7 +11,8 @@
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:openDrawer="left">
+        tools:openDrawer="left"
+        android:id="@+id/drawerLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +25,7 @@
                 android:layout_height="60dp"
                 android:background="#8ED87C"
                 app:title="Quản lí của hàng"
+                app:menu="@menu/toolbar"
                 app:titleTextColor="@color/white" />
 
             <androidx.core.widget.NestedScrollView
@@ -73,60 +75,26 @@
                                 app:cardCornerRadius="10dp"
                                 app:cardUseCompatPadding="true">
 
-                                <ImageButton
-                                    android:layout_width="81dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="15dp"
-                                    android:background="@drawable/store" />
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                app:cardCornerRadius="10dp"
-
-                                app:cardUseCompatPadding="true">
-
-                                <ImageButton
+                                <LinearLayout
                                     android:layout_width="match_parent"
-
                                     android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
-                                    android:background="@drawable/invoice" />
+                                    android:orientation="vertical">
 
-                            </androidx.cardview.widget.CardView>
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/store" />
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-
-                                app:cardCornerRadius="10dp"
-                                app:cardUseCompatPadding="true">
-
-                                <ImageButton
-                                    android:layout_width="match_parent"
-
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
-                                    android:background="@drawable/products" />
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                app:cardCornerRadius="10dp"
-
-                                app:cardUseCompatPadding="true">
-
-                                <ImageButton
-                                    android:layout_width="match_parent"
-
-                                    android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
-                                    android:background="@drawable/warehouse" />
-
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Cửa hàng"
+                                        android:textColor="@color/black"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
                             </androidx.cardview.widget.CardView>
 
                             <androidx.cardview.widget.CardView
@@ -135,13 +103,26 @@
                                 app:cardCornerRadius="10dp"
                                 app:cardUseCompatPadding="true">
 
-                                <ImageButton
+                                <LinearLayout
                                     android:layout_width="match_parent"
-
                                     android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
-                                    android:background="@drawable/analytics" />
+                                    android:orientation="vertical">
 
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/invoice" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Hóa đơn"
+                                        android:textColor="@color/black"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
                             </androidx.cardview.widget.CardView>
 
                             <androidx.cardview.widget.CardView
@@ -150,13 +131,111 @@
                                 app:cardCornerRadius="10dp"
                                 app:cardUseCompatPadding="true">
 
-                                <ImageButton
+                                <LinearLayout
                                     android:layout_width="match_parent"
-
                                     android:layout_height="match_parent"
-                                    android:layout_margin="15dp"
-                                    android:background="@drawable/group" />
+                                    android:orientation="vertical">
 
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/products" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Sản phẩm"
+                                        android:textColor="@color/black"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/warehouse" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Kho hàng"
+                                        android:textColor="@color/black"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardview_analytics"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/analytics" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Báo cáo"
+                                        android:textColor="@color/black"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/group" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Nhân viên"
+                                        android:textColor="@color/black"
+                                        android:textSize="18sp" />
+                                </LinearLayout>
                             </androidx.cardview.widget.CardView>
 
                         </GridLayout>
@@ -181,28 +260,28 @@
 
                         <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
+                            android:layout_height="wrap_content">
+
                             <androidx.viewpager2.widget.ViewPager2
                                 android:id="@+id/viewPager2"
                                 android:layout_width="match_parent"
                                 android:layout_height="200dp" />
 
                             <me.relex.circleindicator.CircleIndicator3
+                                android:id="@+id/circleIndicator3"
                                 android:layout_width="58dp"
                                 android:layout_height="33dp"
-                                android:id="@+id/circleIndicator3"
                                 android:layout_gravity="center|bottom"
                                 android:layout_margin="4dp"
-                                 app:ci_drawable="@drawable/a" />
+                                app:ci_drawable="@drawable/a" />
                         </FrameLayout>
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_marginBottom="100dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
+                        android:layout_marginBottom="100dp"
                         android:background="@color/white">
 
                         <TextView
@@ -429,9 +508,9 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#8ED87C"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_baseline_content_paste_24"
-android:backgroundTint="#8ED87C"
 
             app:layout_anchor="@id/bottomAppBar" />
 
