@@ -114,12 +114,11 @@
                                         android:layout_gravity="center"
                                         android:layout_margin="5dp"
                                         android:background="@drawable/invoice" />
-
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="center"
-                                        android:text="Hóa đơn"
+                                        android:text="Sản phẩm"
                                         android:textColor="@color/black"
                                         android:textSize="18sp" />
                                 </LinearLayout>
@@ -265,7 +264,10 @@
                             <androidx.viewpager2.widget.ViewPager2
                                 android:id="@+id/viewPager2"
                                 android:layout_width="match_parent"
-                                android:layout_height="200dp" />
+                                android:layout_height="200dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="80dp"                                android:overScrollMode="never"
+                                android:foregroundGravity="center"/>
 
                             <me.relex.circleindicator.CircleIndicator3
                                 android:id="@+id/circleIndicator3"
@@ -516,5 +518,13 @@
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|right"
+    android:layout_marginBottom="80dp"
+    android:layout_marginRight="40dp"
 
+    android:src="@drawable/ic_baseline_add_circle_outline_24"
+    />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
