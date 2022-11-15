@@ -84,7 +84,6 @@ public class GiaoDienChinh extends AppCompatActivity {
             @Override
             public void run() {
                 int i4[] = {0};
-
                 int i3[] = {1};
                 int[] i = {0};
                 StringBuilder stringBuilder = new StringBuilder();
@@ -122,9 +121,9 @@ public class GiaoDienChinh extends AppCompatActivity {
                     try {
 
                         Thread.sleep(100);
-                        if (i4[0] ==2) {
+                        if (i4[0] == 2) {
                             Thread.sleep(5000);
-                            i4[0]=0;
+                            i4[0] = 0;
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
