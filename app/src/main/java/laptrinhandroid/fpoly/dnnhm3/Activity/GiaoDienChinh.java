@@ -12,17 +12,20 @@ import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -67,72 +70,82 @@ public class GiaoDienChinh extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPager2);
         navigationView = findViewById(R.id.navigationView);
         setToolBar();
-
+        ImageView imageView=findViewById(R.id.imganh);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getApplication(),MainActivityhoadon.class);
+                startActivity(intent);
+            }
+        });
+//        Connection connection;
+//        DbSqlServer db = new DbSqlServer(); // hàm khởi tạo để mở kết nối
+//        connection = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
         adapterPager = new AdapterPager(this);
         navigationView.setItemIconTintList(null);
-
-        setAdaperViewPager();
+//        setAdaperViewPager();
         new DbSqlServer().openConnect();
         //Chạy chữ
-        runLetters();
-    }
+//        runLetters();
 
-    private void runLetters() {
-        actionbar.setTitle("Quản lí cửa hàng");
-        final String[] s = ("Quản lí cửa hàng").split("");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int i4[] = {0};
+  }
 
-                int i3[] = {1};
-                int[] i = {0};
-                StringBuilder stringBuilder = new StringBuilder();
-                int i1[] = {0};
-                while (true) {
-                    int finalI = i[0];
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (i1[0] == 0) {
-                                stringBuilder.append(s[finalI]);
-                                i[0]++;
-                                if (i[0] == s.length) {
-                                    i[0] = s.length - 1;
-                                    i1[0] = 3;
-                                    if (i3[0] == 2) {
-                                        i4[0]++;
-                                    }
-                                }
-                            } else {
-                                stringBuilder.deleteCharAt(i[0]);
-                                i[0]--;
-                                if (i[0] < 0) {
-                                    i[0] = 0;
-                                    i1[0] = 0;
-                                    i3[0] = 2;
-                                }
-                            }
-                            Log.d("sssss", "run: " + stringBuilder.toString());
-                            if (i3[0] != 1) {
-                                actionbar.setTitle(stringBuilder.toString());
-                            }
-                        }
-                    });
-                    try {
-
-                        Thread.sleep(100);
-                        if (i4[0] ==2) {
-                            Thread.sleep(5000);
-                            i4[0]=0;
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
-    }
+//    private void runLetters() {
+//        actionbar.setTitle("Quản lí cửa hàng");
+//        final String[] s = ("Quản lí cửa hàng").split("");
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                int i4[] = {0};
+//
+//                int i3[] = {1};
+//                int[] i = {0};
+//                StringBuilder stringBuilder = new StringBuilder();
+//                int i1[] = {0};
+//                while (true) {
+//                    int finalI = i[0];
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            if (i1[0] == 0) {
+//                                stringBuilder.append(s[finalI]);
+//                                i[0]++;
+//                                if (i[0] == s.length) {
+//                                    i[0] = s.length - 1;
+//                                    i1[0] = 3;
+//                                    if (i3[0] == 2) {
+//                                        i4[0]++;
+//                                    }
+//                                }
+//                            } else {
+//                                stringBuilder.deleteCharAt(i[0]);
+//                                i[0]--;
+//                                if (i[0] < 0) {
+//                                    i[0] = 0;
+//                                    i1[0] = 0;
+//                                    i3[0] = 2;
+//                                }
+//                            }
+//                            Log.d("sssss", "run: " + stringBuilder.toString());
+//                            if (i3[0] != 1) {
+//                                actionbar.setTitle(stringBuilder.toString());
+//                            }
+//                        }
+//                    });
+//                    try {
+//
+//                        Thread.sleep(100);
+//                        if (i4[0] ==2) {
+//                            Thread.sleep(5000);
+//                            i4[0]=0;
+//                        }
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }).start();
+//    }
 
     private void setAdaperViewPager() {
         viewPager2.setOffscreenPageLimit(1);//Dat so luong trang giu lai o hai ben
@@ -162,4 +175,5 @@ public class GiaoDienChinh extends AppCompatActivity {
         actionbar.setDisplayHomeAsUpEnabled(true);//set icon tren toolbar
         actionbar.setHomeAsUpIndicator(R.drawable.ic_baseline_home_24);//set icon menu
     }
+
 }
