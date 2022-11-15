@@ -70,7 +70,6 @@ public class GiaoDienChinh extends AppCompatActivity {
 
         adapterPager = new AdapterPager(this);
         navigationView.setItemIconTintList(null);
-
         setAdaperViewPager();
         new DbSqlServer().openConnect();
         //Chạy chữ
