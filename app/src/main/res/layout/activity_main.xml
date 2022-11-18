@@ -6,33 +6,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="30dp"
-     >
-   <androidx.cardview.widget.CardView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       app:cardCornerRadius="20dp"
-       >
-       <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-           android:id="@+id/calendarView"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           app:mcv_showOtherDates="none"
-           app:mcv_selectionColor="#00F"
-           app:mcv_selectionMode="single"
-           app:mcv_monthLabels="@drawable/a"
-            />
-   </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8ED87C"
+        app:title="Nhân viên"
+        app:titleTextColor="@color/white" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        app:tabTextColor="@color/item_tablayout"
+        android:layout_height="wrap_content" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </LinearLayout>
-
-
-
-
-  </LinearLayout>
 
 
 

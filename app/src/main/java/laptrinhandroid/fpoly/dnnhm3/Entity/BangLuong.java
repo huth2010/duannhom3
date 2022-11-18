@@ -2,12 +2,12 @@ package laptrinhandroid.fpoly.dnnhm3.Entity;
 
 public class BangLuong {
     private int id;
-    private int  maNV;
+    private int maNV;
     private float luongCB;
     private int ngayCong;
     private int chuNhat;
     private float ungLuong;
-private float thuong;
+    private float thuong;
 
     public float getThuong() {
         return thuong;
@@ -17,22 +17,14 @@ private float thuong;
         this.thuong = thuong;
     }
 
-    public BangLuong(int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong ) {
-        this.maNV = maNV;
-        this.luongCB = luongCB;
-        this.ngayCong = ngayCong;
-        this.chuNhat = chuNhat;
-        this.ungLuong = ungLuong;
-
-    }
-
-    public BangLuong(int id, int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong) {
+    public BangLuong(int id, int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong, float thuong) {
         this.id = id;
         this.maNV = maNV;
         this.luongCB = luongCB;
         this.ngayCong = ngayCong;
         this.chuNhat = chuNhat;
         this.ungLuong = ungLuong;
+        this.thuong = thuong;
     }
 
     public int getId() {
@@ -82,7 +74,6 @@ private float thuong;
     public void setUngLuong(float ungLuong) {
         this.ungLuong = ungLuong;
     }
-
 
 
     public BangLuong() {

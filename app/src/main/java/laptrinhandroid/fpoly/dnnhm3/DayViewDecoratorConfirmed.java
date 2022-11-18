@@ -1,6 +1,7 @@
 package laptrinhandroid.fpoly.dnnhm3;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -15,30 +16,26 @@ import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
 public class DayViewDecoratorConfirmed implements com.prolificinteractive.materialcalendarview.DayViewDecorator {
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-d");
+    List<CalendarDay> strings;
+    private Boolean aBoolean;
 
-    private List<ChamCong> chamCongs;
 
-    private Date ngayBD;
+    public DayViewDecoratorConfirmed(List<CalendarDay> strings ) {
+        this.strings = strings;
 
-    public DayViewDecoratorConfirmed(List<ChamCong> chamCongs, Date ngayBD) {
-        this.chamCongs = chamCongs;
-        this.ngayBD = ngayBD;
     }
+
     @Override
     public boolean shouldDecorate(CalendarDay day) {
-        for (ChamCong chamCong : chamCongs) {
-            return  chamCong.getXacNhanChamCong() == 1 &&
-                    ngayBD.before(FormatDay.convertToDate(day.getYear(),day.getMonth(),day.getDay()))&&
-                    FormatDay.convertToDate(day.getYear(),day.getMonth(),day.getDay()).after(new Date(System.currentTimeMillis()));
-        }
-        return false;
+        return strings.contains(day);
+
+
     }
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new DotSpan(5, R.color.purple_500));
+        view.addSpan(new DotSpan(5, Color.parseColor("#19FE00")));
 
     }
-
 
 }
