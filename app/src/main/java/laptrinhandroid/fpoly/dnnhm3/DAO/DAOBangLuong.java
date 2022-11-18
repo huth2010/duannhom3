@@ -38,14 +38,15 @@ public class DAOBangLuong {
         return false;
     }
 
-    public boolean updateBangLuong(BangLuong bangLuong) throws SQLException {
-        String sql = "UPDATE NhanVien  SET " + "maNV = ?," + " luongCB =?," + "ngayCong=?" + ",chuNhat=?" + ",ungLuong=?" +  " WHERE maNv=?;";
+    public boolean updateBangLuong(BangLuong bangLuong,int maNV) throws SQLException {
+        String sql = "UPDATE NhanVien  SET " + "maNV = ?," + " luongCB =?," + "ngayCong=?" + ",chuNhat=?" + ",ungLuong=?" +",thuuong=?" +  " WHERE maNv='"+maNV+"';";
         PreparedStatement preparedStatement = objConn.prepareStatement(sql);
         preparedStatement.setInt(1, bangLuong.getMaNV());
         preparedStatement.setFloat(2, bangLuong.getLuongCB());
         preparedStatement.setInt(3, bangLuong.getNgayCong());
         preparedStatement.setInt(4, bangLuong.getChuNhat());
         preparedStatement.setFloat(5, bangLuong.getUngLuong());
+        preparedStatement.setFloat(6, bangLuong.getThuong());
         if (preparedStatement.executeUpdate(sql) > 0) {
             preparedStatement.close();
             return true;
@@ -69,7 +70,7 @@ public class DAOBangLuong {
         // Thực thi câu lệnh SQL trả về đối tượng ResultSet. // Mọi kết quả trả về sẽ được lưu trong ResultSet
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
-            list.add(new BangLuong(rs.getInt(1), rs.getInt(2), rs.getFloat(3), rs.getInt(4), rs.getInt(5), rs.getFloat(6) ));// Đọc dữ liệu từ ResultSet
+            list.add(new BangLuong(rs.getInt(1), rs.getInt(2), rs.getFloat(3), rs.getInt(4), rs.getInt(5), rs.getFloat(6), rs.getFloat(7) ));// Đọc dữ liệu từ ResultSet
         }
         objConn.close();// Đóng kết nối
         return list;

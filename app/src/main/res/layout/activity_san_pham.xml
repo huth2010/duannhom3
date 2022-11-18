@@ -5,29 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".Activity.SanPhamActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
+        android:id="@+id/toolBar_sanpham"
+        app:menu="@menu/toolbar_sanpham"
+        app:title="Sản phẩm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#8ED87C"
-        app:title="Nhân viên"
-        app:titleTextColor="@color/white" />
+        android:layout_height="75dp"
+        />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/tablayout_sanpham"
+        app:tabSelectedTextColor="#08AC0F"
         android:layout_width="match_parent"
-        app:tabTextColor="@color/item_tablayout"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager2"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
-
-
-

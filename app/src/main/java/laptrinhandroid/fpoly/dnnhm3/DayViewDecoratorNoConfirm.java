@@ -23,22 +23,18 @@ import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
 public class DayViewDecoratorNoConfirm implements com.prolificinteractive.materialcalendarview.DayViewDecorator {
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-d");
-    private HashSet<CalendarDay> dates;
-
+    List<CalendarDay> strings;
     private Boolean aBoolean;
-    private Date ngayBD;
-    public DayViewDecoratorNoConfirm(Collection<CalendarDay> chamCongs, Date ngayBD) {
-         this.ngayBD = ngayBD;
 
 
-        this.dates = new HashSet<>(chamCongs);
-        Log.d("ssssa", "shouldDecorate: "+dates.toString());
+    public DayViewDecoratorNoConfirm(List<CalendarDay> strings ) {
+         this.strings = strings;
 
     }
 
     @Override
     public boolean shouldDecorate(CalendarDay day) {
-         return dates.contains(day);
+        return strings.contains(day);
 
 
     }
