@@ -120,7 +120,7 @@ public class GiaoDienChinh extends AppCompatActivity {
 
 
         try {
-            nv=nhanVien1.getListNhanVien().get(0);
+            nv= (NhanVien) intent.getSerializableExtra("NV");
             List<ChamCong> chamCongs = daoChamCong.getListChamCong(nv.getMaNv(),FormatDay.calendarDay().getYear()+"-"+FormatDay.calendarDay().getMonth());
             if (chamCongs != null) {
                 long soH=0;
