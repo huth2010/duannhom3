@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3;
+package laptrinhandroid.fpoly.dnnhm3.XuLiNgay;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -15,9 +15,7 @@ import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
 
 public class DayViewDecoratorUnconfirmed implements com.prolificinteractive.materialcalendarview.DayViewDecorator {
     @SuppressLint("SimpleDateFormat")
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-d");
-    List<CalendarDay> strings;
-    private Boolean aBoolean;
+     List<CalendarDay> strings;
 
 
     public DayViewDecoratorUnconfirmed(List<CalendarDay> strings ) {

@@ -70,6 +70,18 @@ public class ChamCong {
         this.xacNhanChamCong = xacNhanChamCong;
     }
 
+    @Override
+    public String toString() {
+        return "ChamCong{" +
+                "maCong=" + maCong +
+                ", maNV=" + maNV +
+                ", gioBatDau=" + gioBatDau +
+                ", gioKetThuc=" + gioKetThuc +
+                ", ngay=" + ngay +
+                ", xacNhanChamCong=" + xacNhanChamCong +
+                '}';
+    }
+
     public ChamCong(int maCong, int maNV, Time gioBatDau, Time gioKetThuc, Date ngay, int xacNhanChamCong) {
         this.maCong = maCong;
         this.maNV = maNV;
