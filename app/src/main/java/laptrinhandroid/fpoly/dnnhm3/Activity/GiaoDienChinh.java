@@ -78,7 +78,7 @@ public class GiaoDienChinh extends AppCompatActivity {
     public static DAONhanVien nhanVien1 = new DAONhanVien();
 
     DrawerLayout drawerLayout;
-    LinearLayout nhanVien;
+    LinearLayout nhanVien,btnstart_kho;
     FloatingActionButton floatAction;
     Runnable runnable = new Runnable() {
         @Override
@@ -112,6 +112,13 @@ public class GiaoDienChinh extends AppCompatActivity {
         txtThuHangHienTai = findViewById(R.id.txtThuHangHienTai);
         txtSoTienThuongHienTai = findViewById(R.id.txtSoTienThuongHienTai);
         btnBangXepHang = findViewById(R.id.btnBangXepHang);
+        btnstart_kho=findViewById(R.id.btnstartKho);
+        btnstart_kho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),QuanLyKho.class));
+            }
+        });
         setToolBar();
         intent = getIntent();
         adapterPager = new AdapterPagerSlideImg(this);
@@ -132,7 +139,6 @@ public class GiaoDienChinh extends AppCompatActivity {
                 float h = (float) soH / (1000 * 60 * 60);
                 txtSoGioDaLam.setText(h + " giờ");
              }
-            txtSoTienThuongHienTai.setText(bangLuong.getBangLuong(nv.getMaNv()).getThuong()+" VND");
 
 
         } catch (SQLException e) {
