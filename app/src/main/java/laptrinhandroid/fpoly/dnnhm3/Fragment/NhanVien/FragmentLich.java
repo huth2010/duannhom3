@@ -55,7 +55,6 @@ public class FragmentLich extends Fragment {
 //                calendarView.setCurrentDate(FormatDay.calendarDay());
 //            }
             if (list0 != null) {
-                list0.add(FormatDay.calendarDay());
                 calendarView.addDecorator(new DayViewDecoratorUnconfirmed(list0));
 
             }
