@@ -8,6 +8,15 @@ public class BangLuong {
     private int chuNhat;
     private float ungLuong;
     private float thuong;
+private String ngayThang;
+
+    public String getNgayThang() {
+        return ngayThang;
+    }
+
+    public void setNgayThang(String ngayThang) {
+        this.ngayThang = ngayThang;
+    }
 
     public float getThuong() {
         return thuong;
@@ -17,7 +26,7 @@ public class BangLuong {
         this.thuong = thuong;
     }
 
-    public BangLuong(int id, int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong, float thuong) {
+    public BangLuong(int id, int maNV, float luongCB, int ngayCong, int chuNhat, float ungLuong, float thuong,String ngayThang) {
         this.id = id;
         this.maNV = maNV;
         this.luongCB = luongCB;
@@ -25,6 +34,7 @@ public class BangLuong {
         this.chuNhat = chuNhat;
         this.ungLuong = ungLuong;
         this.thuong = thuong;
+        this.ngayThang = ngayThang;
     }
 
     public int getId() {

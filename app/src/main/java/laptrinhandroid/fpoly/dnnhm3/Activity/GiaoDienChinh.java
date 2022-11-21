@@ -1,11 +1,16 @@
 package laptrinhandroid.fpoly.dnnhm3.Activity;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
@@ -28,7 +33,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,14 +41,24 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.Duration;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoField;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterPagerSlideImg;
+import laptrinhandroid.fpoly.dnnhm3.DAO.DAOBangLuong;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOChamCong;
+import laptrinhandroid.fpoly.dnnhm3.DAO.DAONhanVien;
+import laptrinhandroid.fpoly.dnnhm3.Entity.BangLuong;
 import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
-import laptrinhandroid.fpoly.dnnhm3.FormatDay;
+import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
+import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.FormatDay;
 import laptrinhandroid.fpoly.dnnhm3.MainActivity;
 import laptrinhandroid.fpoly.dnnhm3.R;
 import me.relex.circleindicator.CircleIndicator3;
@@ -57,8 +71,11 @@ public class GiaoDienChinh extends AppCompatActivity {
     CircleIndicator3 indicator3;
     ActionBar actionbar;
     Handler handler = new Handler(Looper.myLooper());
+    Intent intent;
     int i = 0;
     public static DAOChamCong daoChamCong = new DAOChamCong();
+    public static DAOBangLuong bangLuong = new DAOBangLuong();
+    public static DAONhanVien nhanVien1 = new DAONhanVien();
 
     DrawerLayout drawerLayout;
     LinearLayout nhanVien;
@@ -75,8 +92,9 @@ public class GiaoDienChinh extends AppCompatActivity {
 
         }
     };
-    Button btnXacNhan;
-    TextView txtTg, txtMessage, txtWarning;
+    Button btnXacNhan, btnBangXepHang;
+    NhanVien nv;
+    TextView txtTg, txtMessage, txtWarning, txtSoGioDaLam, txtThuHangHienTai, txtSoTienThuongHienTai;
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
@@ -90,15 +108,44 @@ public class GiaoDienChinh extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
         floatAction = findViewById(R.id.floatAction);
+        txtSoGioDaLam = findViewById(R.id.txtSoGioDaLam);
+        txtThuHangHienTai = findViewById(R.id.txtThuHangHienTai);
+        txtSoTienThuongHienTai = findViewById(R.id.txtSoTienThuongHienTai);
+        btnBangXepHang = findViewById(R.id.btnBangXepHang);
         setToolBar();
+        intent = getIntent();
         adapterPager = new AdapterPagerSlideImg(this);
         navigationView.setItemIconTintList(null);
 
+
+
+        try {
+            nv=nhanVien1.getListNhanVien().get(0);
+            List<ChamCong> chamCongs = daoChamCong.getListChamCong(nv.getMaNv(),FormatDay.calendarDay().getYear()+"-"+FormatDay.calendarDay().getMonth());
+            if (chamCongs != null) {
+                long soH=0;
+                for (ChamCong chamCong : chamCongs) {
+                    if (chamCong.getGioKetThuc() != null) {
+                        soH += chamCong.getGioKetThuc().getTime() - chamCong.getGioBatDau().getTime();
+                    }
+                }
+                float h = (float) soH / (1000 * 60 * 60);
+                txtSoGioDaLam.setText(h + " giờ");
+             }
+            txtSoTienThuongHienTai.setText(bangLuong.getBangLuong(nv.getMaNv()).getThuong()+" VND");
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         setAdaperViewPager();
+        //Chạy chữ
+        runLetters();
         nhanVien.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent1 = new Intent(this, MainActivity.class);
+            intent1.putExtra("nv",nv);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
-            startActivity(intent, options.toBundle());
+            startActivity(intent1, options.toBundle());
         });
         floatAction.setOnClickListener(view -> {
             Dialog dialog = createDialog();
@@ -111,27 +158,37 @@ public class GiaoDienChinh extends AppCompatActivity {
             long gioKetThuc = FormatDay.getKetThucHLam();
             long conLai = gioBatDau - currentTime;
 
-            CountDownTimer demNguocGioBatDauLam = demNguocGioBatDauLam(txtTg, txtMessage, conLai).start();
-            CountDownTimer demNguocGioKetThucLam = demNguocGioKetThucLam(txtTg, txtMessage, gioKetThuc - currentTime).start();
+
+            CountDownTimer demNguocGioBatDauLam;
+            CountDownTimer demNguocGioKetThucLam = demNguocGioKetThucLam(txtTg, txtMessage, gioKetThuc - currentTime);
             try {
-                ChamCong chamCong = daoChamCong.getChamCong(1);
+                ChamCong chamCong = daoChamCong.getChamCong(nv.getMaNv());
                 //Đếm thời gian bắt đầu vào làm
+
                 if (currentTime >= (gioBatDau - (30 * 60 * 1000)) && currentTime <= gioBatDau) {
+                    txtMessage.setText("Bắt đầu vào làm sau");
+                    demNguocGioBatDauLam = demNguocGioBatDauLam(txtTg, txtMessage, conLai).start();
                     demNguocGioBatDauLam.start();
                 } else {
-                    //Khi chấm công vào làm thành công
-                    if (chamCong.getGioBatDau() != null) {
-                        khiChamCongVaoLam(chamCong.getGioBatDau());
-                        demNguocGioKetThucLam.start();
-                    } else if (chamCong.getXacNhanChamCong() == 0) {
-                        hideView();
-                        txtWarning.setText("Đang chờ xác nhận");
-                    } else if (chamCong.getXacNhanChamCong() == 1) {
-                        txtWarning.setText("Đã xác nhận thành công");
-                        hideView();
-                    } else if (chamCong.getXacNhanChamCong() == 2) {
-                        hideView();
-                        txtWarning.setText("Không xác nhận công");
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(new Date(System.currentTimeMillis()));
+
+                    if ((calendar.get(Calendar.HOUR_OF_DAY) > 7 && calendar.get(Calendar.MINUTE) >= 15)) {
+                        //Khi chấm công vào làm thành công
+                        if (chamCong != null) {
+                            if (chamCong.getGioBatDau() != null) {
+                                khiChamCongVaoLam(chamCong.getGioBatDau());
+                            } else if (chamCong.getXacNhanChamCong() == 0) {
+                                hideView();
+                                txtMessage.setText("Đang chờ xác nhận");
+                            } else if (chamCong.getXacNhanChamCong() == 1) {
+                                txtMessage.setText("Đã xác nhận thành công");
+                                hideView();
+                            } else if (chamCong.getXacNhanChamCong() == 2) {
+                                hideView();
+                                txtMessage.setText("Không xác nhận công");
+                            }
+                        }
                     }
                 }
             } catch (SQLException e) {
@@ -143,27 +200,33 @@ public class GiaoDienChinh extends AppCompatActivity {
                 ChamCong chamCong = null;
                 try {
                     chamCong = daoChamCong.getChamCong(1);
-                    if (chamCong.getGioBatDau() == null) {
-                        if (daoChamCong.addChamCong(new ChamCong(1, new Time(System.currentTimeMillis()), null, FormatDay.getCurrentDateSql(), 0))) {
-                            khiChamCongVaoLam(new Time(System.currentTimeMillis()));
-                        }
-                    } else if (currentTime >= gioKetThuc && currentTime <= (gioKetThuc + (60 * 15 * 1000))) {
+                    if (chamCong != null) {
                         chamCong.setGioKetThuc(new Time(System.currentTimeMillis()));
-                        chamCong.setXacNhanChamCong(0);
-                        if(daoChamCong.updateChamCong(chamCong)){
+                        daoChamCong.updateChamCong(chamCong);
+                        if (chamCong.getXacNhanChamCong() == 0) {
                             hideView();
                             txtMessage.setText("Đang chờ xác nhận");
-                       }
+                        } else if (chamCong.getXacNhanChamCong() == 1) {
+                            txtMessage.setText("Đã xác nhận thành công");
+                            hideView();
+                        } else if (chamCong.getXacNhanChamCong() == 2) {
+                            hideView();
+                            txtMessage.setText("Không xác nhận công");
+                        }
+                    } else {
+                        daoChamCong.addChamCong(new ChamCong(nv.getMaNv(), new Time(System.currentTimeMillis()), null, new java.sql.Date(System.currentTimeMillis()), 0));
+                        khiChamCongVaoLam(new Time(System.currentTimeMillis()));
+                        btnXacNhan.setText("Chấm công kết thúc");
+
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    Log.d("sssss1", "onCreate: " + e.toString());
+
                 }
-
-
             });
         });
-        //Chạy chữ
-        runLetters();
+
     }
 
     private void hideView() {
@@ -180,10 +243,9 @@ public class GiaoDienChinh extends AppCompatActivity {
         txtWarning.setTextColor(Color.parseColor("#269A0A"));
         txtWarning.setBackgroundColor(Color.parseColor("#81B7F3B9"));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            txtWarning.setCompoundDrawableTintList(getColorStateList(Color.parseColor("#81B7F3B9")));
+            txtWarning.setCompoundDrawableTintList(getColorStateList(R.color.teal_200));
         }
     }
-
 
 
     private CountDownTimer demNguocGioKetThucLam(TextView txtTg, TextView txtMessage, long conLai) {
@@ -191,23 +253,26 @@ public class GiaoDienChinh extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long l) {
-                txtMessage.setText("Hết giờ làm sau");
-                txtTg.setText(TimeUnit.MILLISECONDS.toMinutes(conLai) + " phút");
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(new Date(l));
+//                TimeUnit.MILLISECONDS.toMinutes(l-60000)
+                txtTg.setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
             }
 
             @Override
             public void onFinish() {
-                txtMessage.setText("Hết giờ làm sau");
 
             }
         };
     }
 
     private CountDownTimer demNguocGioBatDauLam(TextView txtTg, TextView txtMessage, long conLai) {
+
         return new CountDownTimer(conLai, 60000) {
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long l) {
+                txtMessage.setText("Bắt đầu làm sau");
                 txtTg.setText(TimeUnit.MILLISECONDS.toMinutes(conLai) + " phút");
             }
 
@@ -265,6 +330,7 @@ public class GiaoDienChinh extends AppCompatActivity {
                                 }
                             } else {
                                 stringBuilder.deleteCharAt(i[0]);
+
                                 i[0]--;
                                 if (i[0] < 0) {
                                     i[0] = 0;
@@ -278,13 +344,14 @@ public class GiaoDienChinh extends AppCompatActivity {
                         }
                     });
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                         if (i4[0] == 1) {
                             Thread.sleep(5000);
                             i4[0] = 0;
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                        Log.d("sssss", "run: " + e.toString());
                     }
                 }
             }
@@ -296,9 +363,9 @@ public class GiaoDienChinh extends AppCompatActivity {
         //Hiển thị view ẩn
         viewPager2.setClipToPadding(false);//
         viewPager2.setClipChildren(false);//
-//        CompositePageTransformer compositePageTransformer=new CompositePageTransformer();
-//        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
-//        viewPager2.setPageTransformer(compositePageTransformer);
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
+        viewPager2.setPageTransformer(compositePageTransformer);
         viewPager2.setAdapter(adapterPager);
 //      Lắng nghe Thay đổi
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

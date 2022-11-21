@@ -12,36 +12,31 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.CalendarView;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.DayViewDecorator;
-import com.prolificinteractive.materialcalendarview.DayViewFacade;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterPagerNhanVien;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOChamCong;
-import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
+import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
+import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.DayViewDecoratorConfirmed;
+import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.DayViewDecoratorNoConfirm;
+import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.DayViewDecoratorUnconfirmed;
+import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.FormatDay;
+import laptrinhandroid.fpoly.dnnhm3.notification.FcmNotificationsSender;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -63,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
         layout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager2);
         setToolBar();
-
-        viewPager2.setAdapter(new AdapterPagerNhanVien(this));
+        Intent intent = getIntent();
+        NhanVien nhanVien = (NhanVien) intent.getSerializableExtra("nv");
+         viewPager2.setAdapter(new AdapterPagerNhanVien(this, nhanVien));
 
         new TabLayoutMediator(layout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
@@ -76,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).attach();
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()) {
+                    new FcmNotificationsSender(task.getResult(), "Khang", "khangnguyen", R.drawable.a, MainActivity.this).SendNotifications();
+                }
+            }
+        });
 //if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
 //Intent intent = new Intent();
 //intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -84,21 +88,6 @@ public class MainActivity extends AppCompatActivity {
 //}
 //        getCong();
         DAOChamCong daoChamCong = new DAOChamCong();
-        try {
-            list0 = daoChamCong.getListChamCong("1", 0);
-            list1 = daoChamCong.getListChamCong("1", 1);
-            list2 = daoChamCong.getListChamCong("1", 2);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                ;
-                //   calendarView.setCurrentDate(FormatDay.calendarDay());
-
-            }
-            calendarView.addDecorator(new DayViewDecoratorUnconfirmed(list0));
-            calendarView.addDecorator(new DayViewDecoratorConfirmed(list1));
-            calendarView.addDecorator(new DayViewDecoratorNoConfirm(list2));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
 
     }
@@ -126,4 +115,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
 }

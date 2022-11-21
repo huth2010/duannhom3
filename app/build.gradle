@@ -29,6 +29,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-messaging-directboot:23.1.0'//gui tin nhan che o nen
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
+
     implementation 'me.relex:circleindicator:2.1.6'
     implementation platform('com.google.firebase:firebase-bom:31.0.2')
     implementation 'com.google.firebase:firebase-analytics'

@@ -9,6 +9,7 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/spn"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp" />
 
@@ -56,7 +57,7 @@
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="15dp"
-                            android:text="Số ca đã làm:"
+                            android:text="Số công đã làm:"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -115,15 +116,6 @@
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="15dp"
-                        android:text="Số tiền thưởng hiện tại"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,6 +131,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="5dp"
+                        android:id="@+id/txtSoGio"
+
                         android:layout_marginEnd="15dp"
                         android:text="0 giờ"
                         android:textColor="@color/black"
@@ -151,6 +145,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="15dp"
                         android:text="0 ca"
+                        android:id="@+id/txtNgayThuong"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -162,6 +157,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="15dp"
                         android:text="0 ₫"
+                        android:id="@+id/txtChuNhat"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -172,6 +168,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="15dp"
                         android:text="0 ₫"
+                        android:id="@+id/txtLuongCb"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -182,6 +179,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="15dp"
                         android:text="0 ₫"
+                        android:id="@+id/txtUngLuong"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -192,18 +190,10 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="15dp"
                         android:text="0 ₫"
+                        android:id="@+id/txtSoTienThuong"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="15dp"
-                        android:text="0 ₫"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
                 </LinearLayout>
 
 
@@ -243,6 +233,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:text="0 ₫"
+                    android:id="@+id/txtTong"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="italic" />
