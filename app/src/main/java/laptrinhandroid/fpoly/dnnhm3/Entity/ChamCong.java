@@ -14,6 +14,22 @@ public class ChamCong {
     private Date  ngay;
     private int xacNhanChamCong;
 
+    @Override
+    public String toString() {
+        return "ChamCong{" +
+                "maCong=" + maCong +
+                ", maNV=" + maNV +
+                ", gioBatDau=" + gioBatDau +
+                ", gioKetThuc=" + gioKetThuc +
+                ", ngay=" + ngay +
+                ", xacNhanChamCong=" + xacNhanChamCong +
+                '}';
+    }
+
+    public ChamCong() {
+
+    }
+
     public int getMaCong() {
         return maCong;
     }

@@ -1,8 +1,6 @@
 package laptrinhandroid.fpoly.dnnhm3.Adapter;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,14 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.google.apphosting.datastore.testing.DatastoreTestTrace;
-
 import laptrinhandroid.fpoly.dnnhm3.Fragment.FragmentSlideImg;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
-public class AdapterPager extends FragmentStateAdapter {
+public class AdapterPagerSlideImg extends FragmentStateAdapter {
     private Activity activity;
-    public AdapterPager(@NonNull FragmentActivity fragmentActivity) {
+    public AdapterPagerSlideImg(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
         activity=fragmentActivity;
     }
@@ -36,7 +32,7 @@ public class AdapterPager extends FragmentStateAdapter {
 
                 break;
             case 2:
-                bundle.putInt("img", R.drawable.img);
+                bundle.putInt("img", R.drawable.img_1);
 
                 break;
         }

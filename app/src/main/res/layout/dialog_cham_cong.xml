@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#8ED87C"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="19dp"
+        android:textStyle="bold"
+        android:text="Chấm công ngày hôm nay"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/txtWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#F1C5C5"
+        android:drawableLeft="@drawable/ic_baseline_error_24"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Bạn chưa chấm công vào làm"
+        android:textColor="#FF0000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtWarning"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Bắt đầu giờ làm sau"
+        android:textColor="#958282"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtTg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMessage"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="10 phút"
+        android:textColor="#FF0000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnXacNhan"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+         android:layout_below="@+id/txtTg"
+         android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="Chấm công đầu giờ" />
+</RelativeLayout>

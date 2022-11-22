@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3;
+package laptrinhandroid.fpoly.dnnhm3.XuLiNgay;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
@@ -19,26 +19,21 @@ import java.util.HashSet;
 import java.util.List;
 
 import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
+import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class DayViewDecoratorNoConfirm implements com.prolificinteractive.materialcalendarview.DayViewDecorator {
     @SuppressLint("SimpleDateFormat")
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-d");
-    private HashSet<CalendarDay> dates;
-
-    private Boolean aBoolean;
-    private Date ngayBD;
-    public DayViewDecoratorNoConfirm(Collection<CalendarDay> chamCongs, Date ngayBD) {
-         this.ngayBD = ngayBD;
+     List<CalendarDay> strings;
 
 
-        this.dates = new HashSet<>(chamCongs);
-        Log.d("ssssa", "shouldDecorate: "+dates.toString());
+    public DayViewDecoratorNoConfirm(List<CalendarDay> strings ) {
+         this.strings = strings;
 
     }
 
     @Override
     public boolean shouldDecorate(CalendarDay day) {
-         return dates.contains(day);
+        return strings.contains(day);
 
 
     }
@@ -46,7 +41,6 @@ public class DayViewDecoratorNoConfirm implements com.prolificinteractive.materi
     @Override
     public void decorate(DayViewFacade view) {
         view.addSpan(new DotSpan(5, R.color.black));
-
-    }
+     }
 
 }

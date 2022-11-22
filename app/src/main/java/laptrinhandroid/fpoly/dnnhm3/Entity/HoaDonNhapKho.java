@@ -5,17 +5,23 @@ public class HoaDonNhapKho {
     private int maHDNhap;
     private int maNV, maSP;
     private Date ngayNhap;
-    private int soLuong;
+
     private float tongTien;
 
     public HoaDonNhapKho() {
     }
 
-    public HoaDonNhapKho(int maNV, int maSP, Date ngayNhap, int soLuong, float tongTien) {
+    public HoaDonNhapKho(int maNV, int maSP, Date ngayNhap,  float tongTien) {
         this.maNV = maNV;
         this.maSP = maSP;
         this.ngayNhap = ngayNhap;
-        this.soLuong = soLuong;
+        this.tongTien = tongTien;
+    }
+    public HoaDonNhapKho(int maHDNhap, int maNV, int maSP, Date ngayNhap,  float tongTien) {
+        this.maHDNhap = maHDNhap;
+        this.maNV = maNV;
+        this.maSP = maSP;
+        this.ngayNhap = ngayNhap;
         this.tongTien = tongTien;
     }
 
@@ -51,13 +57,6 @@ public class HoaDonNhapKho {
         this.ngayNhap = ngayNhap;
     }
 
-    public int getSoLuong() {
-        return soLuong;
-    }
-
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
-    }
 
     public float getTongTien() {
         return tongTien;

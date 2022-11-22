@@ -1,7 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
+import java.io.Serializable;
 import java.sql.Date;
-public class NhanVien {
+public class NhanVien implements Serializable {
     private   int maNv;
     private  String anh, hoTen, gioiTinh, soDT, diaChi, anhPhoToCC, anhXNKcoTATS, email, passwords, token;
     private Date ngayBD, ngaySinh;
@@ -9,7 +10,24 @@ public class NhanVien {
     public NhanVien() {
     }
 
-
+    @Override
+    public String toString() {
+        return "NhanVien{" +
+                "maNv=" + maNv +
+                ", anh='" + anh + '\'' +
+                ", hoTen='" + hoTen + '\'' +
+                ", gioiTinh='" + gioiTinh + '\'' +
+                ", soDT='" + soDT + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", anhPhoToCC='" + anhPhoToCC + '\'' +
+                ", anhXNKcoTATS='" + anhXNKcoTATS + '\'' +
+                ", email='" + email + '\'' +
+                ", passwords='" + passwords + '\'' +
+                ", token='" + token + '\'' +
+                ", ngayBD=" + ngayBD +
+                ", ngaySinh=" + ngaySinh +
+                '}';
+    }
 
     public int getMaNv() {
         return maNv;
