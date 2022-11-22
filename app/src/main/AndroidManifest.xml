@@ -78,6 +78,7 @@
             android:name=".Activity.SanPhamActivity"
             android:exported="true" />
 
+
      </application>
 
 </manifest>

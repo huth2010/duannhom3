@@ -166,7 +166,7 @@ public class GiaoDienChinh extends AppCompatActivity {
             startActivity(intent1, options.toBundle());
         });
         baoCao.setOnClickListener(v -> {
-            Intent intent1 = new Intent(this, MainActivity.class);
+            Intent intent1 = new Intent(this, BaoCaoActivity.class);
              ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
             startActivity(intent1, options.toBundle());
         });
@@ -176,9 +176,9 @@ public class GiaoDienChinh extends AppCompatActivity {
             startActivity(intent1, options.toBundle());
         });
         cuaHang.setOnClickListener(v -> {
-            Intent intent1 = new Intent(this, MainActivity.class);
-             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
-            startActivity(intent1, options.toBundle());
+//            Intent intent1 = new Intent(this, MainActivity.class);
+//             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
+//            startActivity(intent1, options.toBundle());
         });
         floatAction.setOnClickListener(view -> {
             Dialog dialog = createDialog();
