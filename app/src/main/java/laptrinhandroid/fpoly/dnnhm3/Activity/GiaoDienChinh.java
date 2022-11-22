@@ -1,80 +1,60 @@
 package laptrinhandroid.fpoly.dnnhm3.Activity;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
+ 
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
+ import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
-
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-
-import java.sql.SQLException;
-import java.sql.Time;
-import java.time.Duration;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoField;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
+import java.util.Objects;
 
 import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterPagerSlideImg;
-import laptrinhandroid.fpoly.dnnhm3.DAO.DAOBangLuong;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterPagerSlideImg;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOChamCong;
-import laptrinhandroid.fpoly.dnnhm3.DAO.DAONhanVien;
-import laptrinhandroid.fpoly.dnnhm3.Entity.BangLuong;
-import laptrinhandroid.fpoly.dnnhm3.Entity.ChamCong;
-import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
-import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.FormatDay;
-import laptrinhandroid.fpoly.dnnhm3.MainActivity;
+import laptrinhandroid.fpoly.dnnhm3.JDBC.DbSqlServer;
 import laptrinhandroid.fpoly.dnnhm3.R;
 import me.relex.circleindicator.CircleIndicator3;
 
 public class GiaoDienChinh extends AppCompatActivity {
+    public static DAOChamCong daoChamCong;
     NavigationView navigationView;
+    CardView cardViewSanPham;
     Toolbar toolbar;
     AdapterPagerSlideImg adapterPager;
     ViewPager2 viewPager2;
     CircleIndicator3 indicator3;
     ActionBar actionbar;
     Handler handler = new Handler(Looper.myLooper());
-    Intent intent;
     int i = 0;
+ 
     public static DAOChamCong daoChamCong = new DAOChamCong();
     public static DAOBangLuong bangLuong = new DAOBangLuong();
     public static DAONhanVien nhanVien1 = new DAONhanVien();
@@ -82,7 +62,7 @@ public class GiaoDienChinh extends AppCompatActivity {
     DrawerLayout drawerLayout;
     LinearLayout nhanVien,btnstart_kho;
     FloatingActionButton floatAction;
-    Runnable runnable = new Runnable() {
+     Runnable runnable = new Runnable() {
         @Override
         public void run() {
             i = viewPager2.getCurrentItem();
@@ -94,20 +74,17 @@ public class GiaoDienChinh extends AppCompatActivity {
 
         }
     };
-    Button btnXacNhan, btnBangXepHang;
-    NhanVien nv;
-    TextView txtTg, txtMessage, txtWarning, txtSoGioDaLam, txtThuHangHienTai, txtSoTienThuongHienTai;
 
-    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giao_dien_chinh);
-        nhanVien = findViewById(R.id.nhanVien);
         indicator3 = findViewById(R.id.circleIndicator3);
         toolbar = findViewById(R.id.toolBar);
         viewPager2 = findViewById(R.id.viewPager2);
         navigationView = findViewById(R.id.navigationView);
+ 
         drawerLayout = findViewById(R.id.drawerLayout);
         floatAction = findViewById(R.id.floatAction);
         txtSoGioDaLam = findViewById(R.id.txtSoGioDaLam);
@@ -121,11 +98,16 @@ public class GiaoDienChinh extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),QuanLyKho.class));
             }
         });
-        setToolBar();
-        intent = getIntent();
+         setToolBar();
+        cardViewSanPham= findViewById(R.id.cv_sanpham);
+        cardViewSanPham.setOnClickListener(view -> {
+            Intent intent= new Intent(GiaoDienChinh.this,SanPhamActivity.class);
+            startActivity(intent);
+        }  );
+
         adapterPager = new AdapterPagerSlideImg(this);
         navigationView.setItemIconTintList(null);
-
+ 
 
         try {
             nv = (NhanVien) intent.getSerializableExtra("NV");
@@ -146,9 +128,12 @@ public class GiaoDienChinh extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+ 
         setAdaperViewPager();
+        new DbSqlServer().openConnect();
         //Chạy chữ
         runLetters();
+ 
         nhanVien.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, MainActivity.class);
             intent1.putExtra("nv", nv);
@@ -324,7 +309,7 @@ public class GiaoDienChinh extends AppCompatActivity {
 
         }
         return true;
-    }
+     }
 
     private void runLetters() {
         actionbar.setTitle("Quản lí cửa hàng");
@@ -333,6 +318,7 @@ public class GiaoDienChinh extends AppCompatActivity {
             @Override
             public void run() {
                 int i4[] = {0};
+
                 int i3[] = {1};
                 int[] i = {0};
                 StringBuilder stringBuilder = new StringBuilder();
@@ -354,7 +340,6 @@ public class GiaoDienChinh extends AppCompatActivity {
                                 }
                             } else {
                                 stringBuilder.deleteCharAt(i[0]);
-
                                 i[0]--;
                                 if (i[0] < 0) {
                                     i[0] = 0;
@@ -362,20 +347,21 @@ public class GiaoDienChinh extends AppCompatActivity {
                                     i3[0] = 2;
                                 }
                             }
+                            Log.d("sssss", "run: " + stringBuilder.toString());
                             if (i3[0] != 1) {
                                 actionbar.setTitle(stringBuilder.toString());
                             }
                         }
                     });
                     try {
-                        Thread.sleep(200);
-                        if (i4[0] == 1) {
+
+                        Thread.sleep(100);
+                        if (i4[0] ==2) {
                             Thread.sleep(5000);
-                            i4[0] = 0;
+                            i4[0]=0;
                         }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                        Log.d("sssss", "run: " + e.toString());
                     }
                 }
             }
@@ -387,11 +373,11 @@ public class GiaoDienChinh extends AppCompatActivity {
         //Hiển thị view ẩn
         viewPager2.setClipToPadding(false);//
         viewPager2.setClipChildren(false);//
-        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
-        viewPager2.setPageTransformer(compositePageTransformer);
+//        CompositePageTransformer compositePageTransformer=new CompositePageTransformer();
+//        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
+//        viewPager2.setPageTransformer(compositePageTransformer);
         viewPager2.setAdapter(adapterPager);
-//      Lắng nghe Thay đổi
+//Lắng nghe Thay đổi
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int i) {
@@ -409,11 +395,5 @@ public class GiaoDienChinh extends AppCompatActivity {
         actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);//set icon tren toolbar
         actionbar.setHomeAsUpIndicator(R.drawable.ic_baseline_home_24);//set icon menu
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar, menu);
-        return true;
     }
 }
