@@ -25,8 +25,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity.GiaoDienChinh"
-             android:name=".Activity.login"
+              android:name=".Activity.login"
              android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,13 +53,8 @@
             android:exported="true"></activity>
         <activity
             android:name=".Activity.MainActivityhoadon"
-            android:exported="true"></activity>
-             android:name=".Activity.ThongBao"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:exported="true"/>
+
         <activity
             android:name=".Activity.GiaoDienChinh"
             android:exported="true">
@@ -72,8 +66,9 @@
 
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.SanPhamActivity"
             android:exported="true" />
+
      </application>
 
 </manifest>
