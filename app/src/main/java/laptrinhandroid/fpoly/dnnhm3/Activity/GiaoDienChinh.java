@@ -80,7 +80,6 @@ public class GiaoDienChinh extends AppCompatActivity {
     public static DAONhanVien nhanVien1 = new DAONhanVien();
 
     DrawerLayout drawerLayout;
-    LinearLayout nhanVien;
     FloatingActionButton floatAction;
     Runnable runnable = new Runnable() {
         @Override
@@ -97,6 +96,7 @@ public class GiaoDienChinh extends AppCompatActivity {
     Button btnXacNhan, btnBangXepHang;
     NhanVien nv;
     TextView txtTg, txtMessage, txtWarning, txtSoGioDaLam, txtThuHangHienTai, txtSoTienThuongHienTai;
+    LinearLayout nhanVien,donHang,baoCao,sanPham,qlKho,cuaHang;
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
@@ -104,6 +104,13 @@ public class GiaoDienChinh extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giao_dien_chinh);
         nhanVien = findViewById(R.id.nhanVien);
+        donHang = findViewById(R.id.donHang);
+        baoCao = findViewById(R.id.baoCao);
+        sanPham = findViewById(R.id.sanPham);
+        qlKho = findViewById(R.id.btnstartKho);
+        cuaHang = findViewById(R.id.cuaHang);
+
+
         indicator3 = findViewById(R.id.circleIndicator3);
         toolbar = findViewById(R.id.toolBar);
         viewPager2 = findViewById(R.id.viewPager2);
@@ -146,6 +153,31 @@ public class GiaoDienChinh extends AppCompatActivity {
             Intent intent1 = new Intent(this, MainActivity.class);
             intent1.putExtra("nv", nv);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
+            startActivity(intent1, options.toBundle());
+        });
+        donHang.setOnClickListener(v -> {
+            Intent intent1 = new Intent(this, MainActivityhoadon.class);
+             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
+            startActivity(intent1, options.toBundle());
+        });
+        qlKho.setOnClickListener(v -> {
+            Intent intent1 = new Intent(this, QuanLyKho.class);
+             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
+            startActivity(intent1, options.toBundle());
+        });
+        baoCao.setOnClickListener(v -> {
+            Intent intent1 = new Intent(this, MainActivity.class);
+             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
+            startActivity(intent1, options.toBundle());
+        });
+        sanPham.setOnClickListener(v -> {
+            Intent intent1 = new Intent(this, SanPhamActivity.class);
+             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
+            startActivity(intent1, options.toBundle());
+        });
+        cuaHang.setOnClickListener(v -> {
+            Intent intent1 = new Intent(this, MainActivity.class);
+             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
             startActivity(intent1, options.toBundle());
         });
         floatAction.setOnClickListener(view -> {
