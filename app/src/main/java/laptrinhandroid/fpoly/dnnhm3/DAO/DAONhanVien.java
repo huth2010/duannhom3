@@ -1,6 +1,6 @@
 package laptrinhandroid.fpoly.dnnhm3.DAO;
 
-import android.util.Log;
+import androidx.fragment.app.FragmentActivity;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,18 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import laptrinhandroid.fpoly.dnnhm3.Entity.BangLuong;
-import laptrinhandroid.fpoly.dnnhm3.Entity.KhachHang;
 import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
 import laptrinhandroid.fpoly.dnnhm3.JDBC.DbSqlServer;
 
 public class DAONhanVien {
     Connection objConn;
 
-    public DAONhanVien() {
+    public DAONhanVien(FragmentActivity activity) {
         DbSqlServer db = new DbSqlServer(); // hàm khởi tạo để mở kết nối
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
