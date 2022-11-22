@@ -83,6 +83,7 @@ public class DAONhanVien {
 
     public List<NhanVien> getListNhanVien() throws SQLException {
         List<NhanVien> list = new ArrayList<>();
+ 
         if (objConn!=null){
             Statement statement = objConn.createStatement();// Tạo đối tượng Statement.
             String sql = " SELECT * FROM  NhanVien";
@@ -95,6 +96,7 @@ public class DAONhanVien {
             return list;
         }
 
+ 
         return null;
     }
     public NhanVien checkLogin(String email,String password) throws SQLException {

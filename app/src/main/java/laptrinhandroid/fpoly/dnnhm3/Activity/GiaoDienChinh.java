@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -33,6 +34,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -125,12 +127,11 @@ public class GiaoDienChinh extends AppCompatActivity {
         navigationView.setItemIconTintList(null);
 
 
-
         try {
-            nv= (NhanVien) intent.getSerializableExtra("NV");
-            List<ChamCong> chamCongs = daoChamCong.getListChamCong(nv.getMaNv(),FormatDay.calendarDay().getYear()+"-"+FormatDay.calendarDay().getMonth());
+            nv = (NhanVien) intent.getSerializableExtra("NV");
+            List<ChamCong> chamCongs = daoChamCong.getListChamCong(nv.getMaNv(), FormatDay.calendarDay().getYear() + "-" + FormatDay.calendarDay().getMonth());
             if (chamCongs != null) {
-                long soH=0;
+                long soH = 0;
                 for (ChamCong chamCong : chamCongs) {
                     if (chamCong.getGioKetThuc() != null) {
                         soH += chamCong.getGioKetThuc().getTime() - chamCong.getGioBatDau().getTime();
@@ -138,8 +139,9 @@ public class GiaoDienChinh extends AppCompatActivity {
                 }
                 float h = (float) soH / (1000 * 60 * 60);
                 txtSoGioDaLam.setText(h + " giờ");
-             }
-
+ 
+           // txtSoTienThuongHienTai.setText(bangLuong.getBangLuong(nv.getMaNv()).getThuong() + " VND");
+ 
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -149,7 +151,7 @@ public class GiaoDienChinh extends AppCompatActivity {
         runLetters();
         nhanVien.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, MainActivity.class);
-            intent1.putExtra("nv",nv);
+            intent1.putExtra("nv", nv);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, nhanVien, "a");
             startActivity(intent1, options.toBundle());
         });
@@ -163,10 +165,11 @@ public class GiaoDienChinh extends AppCompatActivity {
             long gioBatDau = FormatDay.getBatDauLam();
             long gioKetThuc = FormatDay.getKetThucHLam();
             long conLai = gioBatDau - currentTime;
-
+            Log.d("Ssssdf1", "onCreate: " + new Date(conLai) + "");
 
             CountDownTimer demNguocGioBatDauLam;
             CountDownTimer demNguocGioKetThucLam = demNguocGioKetThucLam(txtTg, txtMessage, gioKetThuc - currentTime);
+            demNguocGioKetThucLam.start();
             try {
                 ChamCong chamCong = daoChamCong.getChamCong(nv.getMaNv());
                 //Đếm thời gian bắt đầu vào làm
@@ -175,12 +178,20 @@ public class GiaoDienChinh extends AppCompatActivity {
                     txtMessage.setText("Bắt đầu vào làm sau");
                     demNguocGioBatDauLam = demNguocGioBatDauLam(txtTg, txtMessage, conLai).start();
                     demNguocGioBatDauLam.start();
+                    Log.d("Ssssdf1", "onCreate: " + (chamCong != null) + chamCong);
+
                 } else {
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(new Date(System.currentTimeMillis()));
 
                     if ((calendar.get(Calendar.HOUR_OF_DAY) > 7 && calendar.get(Calendar.MINUTE) >= 15)) {
                         //Khi chấm công vào làm thành công
+                        if (currentTime <= (gioKetThuc * 15 * 60 * 1000)) {
+                            txtMessage.setText("Hết giờ làm sau");
+                            btnXacNhan.setText("Chấm công kết thúc");
+                            demNguocGioKetThucLam.start();
+                        }
+
                         if (chamCong != null) {
                             if (chamCong.getGioBatDau() != null) {
                                 khiChamCongVaoLam(chamCong.getGioBatDau());
@@ -255,14 +266,21 @@ public class GiaoDienChinh extends AppCompatActivity {
 
 
     private CountDownTimer demNguocGioKetThucLam(TextView txtTg, TextView txtMessage, long conLai) {
+
+
         return new CountDownTimer(conLai, 60000) {
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long l) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTime(new Date(l));
-//                TimeUnit.MILLISECONDS.toMinutes(l-60000)
-                txtTg.setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
+                long differenceInMilliSeconds
+                        = Math.abs(l);
+                long differenceInHours
+                        = (differenceInMilliSeconds / (60 * 60 * 1000))
+                        % 24;
+                long differenceInMinutes
+                        = (differenceInMilliSeconds / (60 * 1000)) % 60;
+
+                txtTg.setText(differenceInHours + ":" + differenceInMinutes);
             }
 
             @Override
