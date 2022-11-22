@@ -32,7 +32,7 @@ public class AdapterPagerSlideImg extends FragmentStateAdapter {
 
                 break;
             case 2:
-                bundle.putInt("img", R.drawable.img);
+                bundle.putInt("img", R.drawable.img_1);
 
                 break;
         }

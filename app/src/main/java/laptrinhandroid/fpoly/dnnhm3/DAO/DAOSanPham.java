@@ -1,5 +1,7 @@
 package laptrinhandroid.fpoly.dnnhm3.DAO;
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -94,6 +96,22 @@ public class DAOSanPham {
         }
         objConn.close();
         return list;
+    }
+
+    public int getTongTienSanPham() throws SQLException {
+        List <Integer> list = new ArrayList<>();
+        Statement statement = objConn.createStatement();
+        String sql = " SELECT sum(giaNhap) FROM SanPham";
+        ResultSet rs = statement.executeQuery(sql);
+        while (rs.next()) {
+            try {
+                list.add((int) rs.getFloat(1));
+            } catch (Exception e) {
+                Log.d("aaaa",e.toString());
+            }
+        }
+        statement.close();
+        return list.get(0);
     }
 
 }
