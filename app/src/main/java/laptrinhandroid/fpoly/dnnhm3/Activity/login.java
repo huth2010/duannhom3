@@ -29,11 +29,11 @@ public class login extends AppCompatActivity {
         inputEmail.setText("haidzkkk.gamil.com");
         EditText inputPassword=findViewById(R.id.inputPassword);
          inputPassword.setText("thanhhai");
-        try {
-            Log.d("sssw", "onCreate: "+GiaoDienChinh.nhanVien1.getListNhanVien().get(0));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Log.d("sssw", "onCreate: "+GiaoDienChinh.nhanVien1.getListNhanVien().get(0));
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
  
  
         inputEmail.setText("haidzkkk.gamil.com");
