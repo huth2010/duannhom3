@@ -26,7 +26,16 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Button btnLogin=findViewById(R.id.btnLogin);
         EditText inputEmail=findViewById(R.id.inputEmail);
+        inputEmail.setText("haidzkkk.gamil.com");
         EditText inputPassword=findViewById(R.id.inputPassword);
+         inputPassword.setText("thanhhai");
+        try {
+            Log.d("sssw", "onCreate: "+GiaoDienChinh.nhanVien1.getListNhanVien().get(0));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+ 
+ 
         inputEmail.setText("haidzkkk.gamil.com");
         inputPassword.setText("thanhhai");
         ProgressDialog progressDialog=new ProgressDialog(this);
@@ -45,6 +54,7 @@ public class login extends AppCompatActivity {
                     }else{
                         progressDialog.dismiss();
                         Toast.makeText(login.this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
+ 
 
                     }
                 } catch (SQLException e) {
