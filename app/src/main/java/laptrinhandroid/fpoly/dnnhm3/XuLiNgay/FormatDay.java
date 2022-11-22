@@ -36,8 +36,8 @@ public class FormatDay {
     public static long getKetThucHLam() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new java.util.Date(System.currentTimeMillis()));
-        calendar.set(Calendar.MINUTE, 30);
-        calendar.set(Calendar.HOUR_OF_DAY, 17);
+        calendar.set(Calendar.MINUTE, 15);
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
         return calendar.getTime().getTime();
     }
 

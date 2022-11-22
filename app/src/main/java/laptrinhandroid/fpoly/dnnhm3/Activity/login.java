@@ -2,6 +2,7 @@ package laptrinhandroid.fpoly.dnnhm3.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,32 +26,45 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Button btnLogin=findViewById(R.id.btnLogin);
         EditText inputEmail=findViewById(R.id.inputEmail);
+        inputEmail.setText("haidzkkk.gamil.com");
         EditText inputPassword=findViewById(R.id.inputPassword);
+         inputPassword.setText("thanhhai");
         try {
             Log.d("sssw", "onCreate: "+GiaoDienChinh.nhanVien1.getListNhanVien().get(0));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!TextUtils.isEmpty(inputEmail.getText().toString())&&!TextUtils.isEmpty(inputPassword.getText().toString())){
-                    try {
-                        NhanVien nhanVien=new DAONhanVien().checkLogin(inputEmail.getText().toString(),inputPassword.getText().toString());
-                        if(nhanVien!=null){
-                            Intent intent=new Intent(login.this,GiaoDienChinh.class);
-                            intent.putExtra("NV",nhanVien);
-                            startActivity(intent);
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        Log.d("fgggg", "onClick: "+e.toString());
-                        Toast.makeText(login.this, e.toString()+"", Toast.LENGTH_SHORT).show();
-                    }
+ 
+ 
+        inputEmail.setText("haidzkkk.gamil.com");
+        inputPassword.setText("thanhhai");
+        ProgressDialog progressDialog=new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setTitle("Vui lòng chờ ...");
+        btnLogin.setOnClickListener(view -> {
+            progressDialog.show();
+            if(!TextUtils.isEmpty(inputEmail.getText().toString())&&!TextUtils.isEmpty(inputPassword.getText().toString())){
+                try {
+                    NhanVien nhanVien=new DAONhanVien().checkLogin(inputEmail.getText().toString(),inputPassword.getText().toString());
 
+                    if(nhanVien!=null){
+                         Intent intent=new Intent(login.this,GiaoDienChinh.class);
+                        intent.putExtra("NV",nhanVien);
+                        startActivity(intent);
+                    }else{
+                        progressDialog.dismiss();
+                        Toast.makeText(login.this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
+ 
+
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    Log.d("fgggg", "onClick: "+e.toString());
+                    Toast.makeText(login.this, e.toString()+"", Toast.LENGTH_SHORT).show();
                 }
 
             }
+
         });
     }
 }

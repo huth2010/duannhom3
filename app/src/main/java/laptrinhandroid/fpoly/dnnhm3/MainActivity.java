@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -87,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
 //activityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));
 //}
 //        getCong();
-        DAOChamCong daoChamCong = new DAOChamCong();
-
 
     }
 
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);//set icon tren toolbar
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_baseline_home_24);//set icon menu
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);//set icon menu
     }
 
 
@@ -112,6 +111,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_nhan_vien, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==android.R.id.home){
+            finish();
+        }
         return true;
     }
 
