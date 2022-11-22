@@ -49,8 +49,8 @@
         </service>
 
         <activity
-             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:name=".MainActivity"
+            android:exported="true" />
         <activity
             android:name=".Activity.MainActivityhoadon"
             android:exported="true"/>

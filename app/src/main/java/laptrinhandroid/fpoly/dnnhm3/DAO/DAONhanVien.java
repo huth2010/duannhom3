@@ -17,7 +17,7 @@ import laptrinhandroid.fpoly.dnnhm3.JDBC.DbSqlServer;
 public class DAONhanVien {
     Connection objConn;
 
-    public DAONhanVien(FragmentActivity activity) {
+    public DAONhanVien() {
         DbSqlServer db = new DbSqlServer(); // hàm khởi tạo để mở kết nối
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
