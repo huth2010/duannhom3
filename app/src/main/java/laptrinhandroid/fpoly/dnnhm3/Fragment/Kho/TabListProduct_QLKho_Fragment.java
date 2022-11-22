@@ -1,65 +1,81 @@
 package laptrinhandroid.fpoly.dnnhm3.Fragment.Kho;
 
+import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import laptrinhandroid.fpoly.dnnhm3.Adapter.HoaDonNhapAdapter;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.SanPhamKhoAdapter;
+import laptrinhandroid.fpoly.dnnhm3.DAO.DAOHoaDonNhap;
+import laptrinhandroid.fpoly.dnnhm3.DAO.DAOSanPham;
+import laptrinhandroid.fpoly.dnnhm3.Entity.HoaDonNhapKho;
+import laptrinhandroid.fpoly.dnnhm3.Entity.SanPham;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TabListProduct_QLKho_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class TabListProduct_QLKho_Fragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public TabListProduct_QLKho_Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TabListProduct_QLKho_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TabListProduct_QLKho_Fragment newInstance(String param1, String param2) {
-        TabListProduct_QLKho_Fragment fragment = new TabListProduct_QLKho_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    LayoutInflater inflater;
+    Context mContext;
+    ArrayList<SanPham> arrSP = new ArrayList<>();
+    RecyclerView rcySP;
+    DAOSanPham daoSanPham;
+    SanPhamKhoAdapter adapter;
+    int giatritongSP;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        inflater = getLayoutInflater();
+        rcySP= view.findViewById(R.id.recyclerview_lsProduct);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext);
+        rcySP.setLayoutManager(layoutManager);
+        TextView tv_tongSP,tv_giatriton;
+        tv_tongSP=view.findViewById(R.id.txt_tongSPton);
+        tv_giatriton=view.findViewById(R.id.tv_giatriton);
+        daoSanPham = new DAOSanPham();
+        try {
+            arrSP = (ArrayList<SanPham>) daoSanPham.getListSanPham();
+            giatritongSP= daoSanPham.getTongTienSanPham();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.d("loiii", "onViewCreated: "+e.getMessage());
         }
+        adapter = new SanPhamKhoAdapter(mContext, arrSP);
+        rcySP.setAdapter(adapter);
+        tv_tongSP.setText(arrSP.size()+" sản phẩm");
+        tv_giatriton.setText(giatritongSP+" đ");
+        Log.e("ListSuze", arrSP.size() + "");
+        Log.e("giatritong", giatritongSP + "");
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_list_product__q_l_kho_, container, false);
+        View view=inflater.inflate(R.layout.fragment_tab_list_product__q_l_kho_, container, false);
+        return view;
     }
 }
