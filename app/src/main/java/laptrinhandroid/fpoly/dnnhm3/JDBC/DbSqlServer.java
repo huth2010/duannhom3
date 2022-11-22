@@ -16,14 +16,13 @@ public class DbSqlServer {
         StrictMode.setThreadPolicy(threadPolicy);
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-            @SuppressLint("AuthLeak") String connectUrl = "jdbc:jtds:sqlserver://192.168.1.117:1433;databasename=CP17303_n03;user=CP17303_n03;password=2992003";
+            @SuppressLint("AuthLeak") String connectUrl = "jdbc:jtds:sqlserver:/10.24.48.212:1433;databasename=duan1;user=sa;password=quan";
             this.connection =
                     DriverManager.getConnection(connectUrl);
             Log.d("sssssss", "openConnect: OK");
         } catch (Exception e) {
             e.printStackTrace();
             Log.d("sssssss", "openConnect: OK" + e.getMessage());
-
         }
         return connection;
     }
