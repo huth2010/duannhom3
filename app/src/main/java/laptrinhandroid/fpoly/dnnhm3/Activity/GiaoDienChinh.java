@@ -102,6 +102,7 @@ public class GiaoDienChinh extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //1
         setContentView(R.layout.activity_giao_dien_chinh);
         nhanVien = findViewById(R.id.nhanVien);
         indicator3 = findViewById(R.id.circleIndicator3);
