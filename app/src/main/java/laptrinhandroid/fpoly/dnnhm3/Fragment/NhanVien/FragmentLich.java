@@ -46,8 +46,7 @@ public class FragmentLich extends Fragment {
         DAOChamCong daoChamCong = GiaoDienChinh.daoChamCong;
         try {
             Bundle bundle = getArguments();
-            assert bundle != null;
-            NhanVien nhanVien = (NhanVien) bundle.getSerializable("nv");
+             NhanVien nhanVien = (NhanVien) bundle.getSerializable("nv");
             list0 = daoChamCong.getListChamCong(nhanVien.getMaNv(), 0);
             list1 = daoChamCong.getListChamCong(nhanVien.getMaNv(), 1);
             list2 = daoChamCong.getListChamCong(nhanVien.getMaNv(), 2);

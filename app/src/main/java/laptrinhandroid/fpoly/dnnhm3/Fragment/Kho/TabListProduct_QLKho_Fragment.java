@@ -15,16 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.HoaDonNhapAdapter;
-import laptrinhandroid.fpoly.dnnhm3.Adapter.SanPhamKhoAdapter;
-import laptrinhandroid.fpoly.dnnhm3.DAO.DAOHoaDonNhap;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterKho.SanPhamKhoAdapter;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOSanPham;
-import laptrinhandroid.fpoly.dnnhm3.Entity.HoaDonNhapKho;
 import laptrinhandroid.fpoly.dnnhm3.Entity.SanPham;
 import laptrinhandroid.fpoly.dnnhm3.R;
 

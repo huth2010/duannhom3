@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3;
+package laptrinhandroid.fpoly.dnnhm3.Activity;
 
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,16 +28,11 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterPagerNhanVien;
-import laptrinhandroid.fpoly.dnnhm3.DAO.DAOChamCong;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdpaterNhanVien.AdapterPagerNhanVien;
 import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
-import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.DayViewDecoratorConfirmed;
-import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.DayViewDecoratorNoConfirm;
-import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.DayViewDecoratorUnconfirmed;
-import laptrinhandroid.fpoly.dnnhm3.XuLiNgay.FormatDay;
+import laptrinhandroid.fpoly.dnnhm3.R;
 import laptrinhandroid.fpoly.dnnhm3.notification.FcmNotificationsSender;
 
 
@@ -73,14 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).attach();
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
-            @Override
-            public void onComplete(@NonNull Task<String> task) {
-                if (task.isSuccessful()) {
-                    new FcmNotificationsSender(task.getResult(), "Khang", "khangnguyen", R.drawable.a, MainActivity.this).SendNotifications();
-                }
-            }
-        });
+
 //if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
 //Intent intent = new Intent();
 //intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);

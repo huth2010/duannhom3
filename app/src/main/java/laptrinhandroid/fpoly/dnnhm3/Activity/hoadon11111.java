@@ -12,7 +12,7 @@ import android.os.Bundle;
 import java.sql.SQLException;
 import java.util.List;
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.Sanphamadpter;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterSanPham.Sanphamadpter;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOSanPham;
 import laptrinhandroid.fpoly.dnnhm3.Entity.SanPham;
 import laptrinhandroid.fpoly.dnnhm3.R;

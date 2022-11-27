@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3.Adapter;
+package laptrinhandroid.fpoly.dnnhm3.Adapter.Adapter_GDC;
 
 import android.app.Activity;
 import android.os.Bundle;

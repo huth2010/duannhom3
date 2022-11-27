@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3.Adapter;
+package laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterSanPham;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +25,8 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOSanPham;
-import laptrinhandroid.fpoly.dnnhm3.DAO.DAOhoadon;
 import laptrinhandroid.fpoly.dnnhm3.Entity.SanPham;
 import laptrinhandroid.fpoly.dnnhm3.Fragment.banhang;
-import laptrinhandroid.fpoly.dnnhm3.MainActivity;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class Sanphamadpter extends RecyclerView.Adapter<Sanphamadpter.viewholder> {

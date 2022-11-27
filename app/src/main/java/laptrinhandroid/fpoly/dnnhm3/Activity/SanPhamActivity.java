@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.ViewSanPhamAdapter;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterSanPham.ViewSanPhamAdapter;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class SanPhamActivity extends AppCompatActivity {

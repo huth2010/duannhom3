@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3.Adapter;
+package laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterKho;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

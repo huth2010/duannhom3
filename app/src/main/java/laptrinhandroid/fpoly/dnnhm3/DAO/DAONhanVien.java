@@ -58,10 +58,10 @@ public class DAONhanVien {
         preparedStatement.setString(8, nhanVien.getEmail());
         preparedStatement.setString(9, nhanVien.getPasswords());
         preparedStatement.setString(10, nhanVien.getToken());
-        preparedStatement.setDate(11, (Date) nhanVien.getNgayBD());
-        preparedStatement.setDate(12, (Date) nhanVien.getNgaySinh());
+        preparedStatement.setDate(11,  nhanVien.getNgayBD());
+        preparedStatement.setDate(12,  nhanVien.getNgaySinh());
         preparedStatement.setInt(13, nhanVien.getMaNv());
-        if (preparedStatement.executeUpdate(sql) > 0) {
+        if (preparedStatement.executeUpdate() > 0) {
             preparedStatement.close();
             return true;
         }
@@ -94,6 +94,25 @@ public class DAONhanVien {
         }
 
  
+        return null;
+    }
+    public  NhanVien  getListNhanVien(int maNV) throws SQLException {
+        NhanVien list = new NhanVien();
+
+        if (objConn!=null){
+            Statement statement = objConn.createStatement();// Tạo đối tượng Statement.
+            String sql = " SELECT * FROM  NhanVien";
+            // Thực thi câu lệnh SQL trả về đối tượng ResultSet. // Mọi kết quả trả về sẽ được lưu trong ResultSet
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                list=new NhanVien(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getDate(12), rs.getDate(13));// Đọc dữ liệu từ ResultSet
+                statement.close();// Đóng kết nối
+                return list;
+            }
+            return null;
+        }
+
+
         return null;
     }
     public NhanVien checkLogin(String email,String password) throws SQLException {

@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.HoaDonNhapAdapter;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterHoaDon.HoaDonNhapAdapter;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOHoaDonNhap;
 import laptrinhandroid.fpoly.dnnhm3.Entity.HoaDonNhapKho;
 import laptrinhandroid.fpoly.dnnhm3.R;

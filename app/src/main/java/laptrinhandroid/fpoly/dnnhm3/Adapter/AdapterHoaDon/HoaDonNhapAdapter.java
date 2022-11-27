@@ -1,4 +1,4 @@
-package laptrinhandroid.fpoly.dnnhm3.Adapter;
+package laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterHoaDon;
 
 import android.content.Context;
 import android.view.LayoutInflater;

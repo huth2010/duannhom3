@@ -1,14 +1,10 @@
 package laptrinhandroid.fpoly.dnnhm3.Activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -17,14 +13,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.viewadapter;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterHoaDon.viewadapter;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class MainActivityhoadon extends AppCompatActivity {

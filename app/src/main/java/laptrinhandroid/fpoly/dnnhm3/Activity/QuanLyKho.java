@@ -16,7 +16,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import laptrinhandroid.fpoly.dnnhm3.Adapter.ViewPagerAdapter;
+import laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterKho.ViewPagerAdapter;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class QuanLyKho extends AppCompatActivity {

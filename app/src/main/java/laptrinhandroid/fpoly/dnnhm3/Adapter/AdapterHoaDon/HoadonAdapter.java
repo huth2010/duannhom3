@@ -1,23 +1,18 @@
-package laptrinhandroid.fpoly.dnnhm3.Adapter;
+package laptrinhandroid.fpoly.dnnhm3.Adapter.AdapterHoaDon;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOhoadon;
 import laptrinhandroid.fpoly.dnnhm3.Entity.HoaDonBan;
-import laptrinhandroid.fpoly.dnnhm3.JDBC.DbSqlServer;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class HoadonAdapter extends RecyclerView.Adapter<HoadonAdapter.viewholder>  {
