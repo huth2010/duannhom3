@@ -11,7 +11,7 @@
     tools:context=".Fragment.Fragment_baocao.FragmentCuaHang">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/frg_lailo_cardview_time"
+        android:id="@+id/frg_cuahang_cardview_time"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/gray_white"
@@ -29,7 +29,7 @@
                 android:src="@drawable/icon_calender" />
 
             <TextView
-                android:id="@+id/frg_lailo_tv_time"
+                android:id="@+id/frg_cuahang_tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hôm nay"
@@ -67,13 +67,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
+                    android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         app:cardCornerRadius="10dp">
 
                         <LinearLayout
@@ -101,11 +99,11 @@
 
 
                             <TextView
-                                android:id="@+id/baocao_lailo_loinhuan"
+                                android:id="@+id/cuahang_tv_doanhthu"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="1.531.000  đ"
+                                android:text="0"
                                 android:textColor="@color/teal_200"
                                 android:textSize="35sp"
                                 android:textStyle="bold" />
@@ -129,7 +127,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_margin="10dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
@@ -149,6 +146,7 @@
                                     app:cardCornerRadius="30dp">
 
                                     <TextView
+                                        android:id="@+id/cuahang_tv_soluongdonhang"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="center_vertical|end"
@@ -174,7 +172,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_margin="10dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
@@ -184,6 +181,7 @@
                                     app:cardCornerRadius="30dp">
 
                                     <TextView
+                                        android:id="@+id/cuahang_tv_soluongdonhuy"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="center_vertical|end"
@@ -221,7 +219,7 @@
                 app:cardCornerRadius="10dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph_vđasadadiew"
+                    android:id="@+id/cuahang_graphview"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:background="@color/white" />
@@ -256,7 +254,6 @@
                             android:src="@drawable/icon_top" />
 
                         <TextView
-                            android:id="@+id/lailo_tvloinhuan"
                             style="@style/BaoCao_tvtitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -265,6 +262,7 @@
                             android:textSize="25sp" />
 
                         <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/cuahang_rcv_top"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
 

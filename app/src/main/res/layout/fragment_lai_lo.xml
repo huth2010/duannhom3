@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.Fragment_baocao.FragmentThuChi"
     android:background="@color/gray_white"
-    android:paddingTop="10dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp">
+    tools:context=".Fragment.Fragment_baocao.FragmentThuChi">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/frg_lailo_cardview_time"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        app:cardCornerRadius="10dp"
-        android:background="@color/gray_white">
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/gray_white"
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            >
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="20dp"
@@ -35,8 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hôm nay"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <ImageView
                 android:layout_width="15dp"
@@ -52,7 +51,11 @@
         android:id="@+id/baocao_lailo_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,27 +71,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_margin="10dp"
+                    android:orientation="vertical"
                     android:paddingTop="15dp">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/icon_coin"
                         android:layout_gravity="center"
                         android:layout_marginTop="3dp"
-                        android:layout_marginRight="5dp"/>
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/icon_coin" />
 
                     <TextView
                         android:id="@+id/lailo_tvloinhuan"
+                        style="@style/BaoCao_tvtitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lợi nhuận"
-                        style="@style/BaoCao_tvtitle"
-                        android:textSize="25sp"
                         android:gravity="center"
-                        />
+                        android:text="Lợi nhuận"
+                        android:textSize="20sp" />
 
 
                     <TextView
@@ -96,10 +98,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="31.000  đ"
+                        android:text="31.000  ₫"
+                        android:textColor="@color/teal_200"
                         android:textSize="35sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/teal_200"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -118,10 +120,14 @@
                     android:padding="10dp">
 
                     <TextView
+                        style="@style/BaoCao_tvtitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/BaoCao_tvtitle"
-                        android:text="Chi tiết báo cáo"
+                        android:text="KẾT QUẢ KINH DOANH"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/gray" />
 
                     <androidx.cardview.widget.CardView
@@ -142,17 +148,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:fontFamily="sans-serif-medium"
-                                android:text="Doanh thu"
-                                android:textSize="20sp" />
+                                android:text="Doanh thu bán hàng"
+                                android:textSize="16sp" />
 
                             <ImageView
                                 android:id="@+id/baocao_lailo_img_doanhthu"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/icon_right"
                                 android:layout_alignParentRight="true"
                                 android:padding="7dp"
-                                />
+                                android:src="@drawable/icon_right" />
 
                             <TextView
                                 android:id="@+id/baocao_lailo_tv_tiendoanhthu"
@@ -168,103 +173,117 @@
                                 android:id="@+id/baocao_lailo_rcv_doanhthu"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingRight="40dp"
-                                android:paddingLeft="20dp"
                                 android:layout_below="@+id/baocao_lailo_img_doanhthu"
-                                android:visibility="gone"
-                                android:animateLayoutChanges="true">
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="40dp"
+                                android:visibility="gone">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="1dp"
-                                    android:background="#CCCCCC"
-                                    />
-
-
-                                <TextView
-                                    android:id="@+id/baocao_lailo_tv_tongbangia"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:fontFamily="sans-serif-medium"
-                                    android:text="Tổng bán giá"
-                                    android:textSize="18sp" />
-
-                                <TextView
-                                    android:id="@+id/baocao_lailo_tv_tientongbangia"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:text="567.943"
-                                    android:textSize="18sp"
-                                    />
+                                    android:background="#CCCCCC" />
 
                                 <TextView
                                     android:id="@+id/baocao_lailo_tv_thuphivanchuyen"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
-                                    android:layout_below="@+id/baocao_lailo_tv_tongbangia"
                                     android:fontFamily="sans-serif-medium"
                                     android:text="Thu phí vận chuyển"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/baocao_lailo_tv_tienthuphivanchuyen"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:layout_below="@+id/baocao_lailo_tv_tongbangia"
                                     android:text="0"
-                                    android:textSize="18sp"
-                                    />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/baocao_lailo_tv_khuyenmai"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
                                     android:layout_below="@+id/baocao_lailo_tv_thuphivanchuyen"
+                                    android:layout_alignParentStart="true"
                                     android:fontFamily="sans-serif-medium"
                                     android:text="Khuyến mãi"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/baocao_lailo_tv_tienkhuyenmai"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
                                     android:layout_below="@+id/baocao_lailo_tv_thuphivanchuyen"
+                                    android:layout_alignParentRight="true"
                                     android:text="0"
-                                    android:textSize="18sp"
-                                    />
+                                    android:textSize="16sp" />
 
 
                                 <TextView
                                     android:id="@+id/baocao_lailo_tv_chietkhau"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
                                     android:layout_below="@+id/baocao_lailo_tv_khuyenmai"
+                                    android:layout_alignParentStart="true"
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Chiếu khấu"
-                                    android:textSize="18sp" />
+                                    android:text="Chiết khấu"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/baocao_lailo_tv_tienchietkhau"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
                                     android:layout_below="@+id/baocao_lailo_tv_khuyenmai"
+                                    android:layout_alignParentRight="true"
                                     android:text="0"
-                                    android:textSize="18sp"
-                                    />
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_thuevat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_tienchietkhau"
+                                    android:layout_alignParentStart="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Thuế VAT"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_tienthuevat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_tienchietkhau"
+                                    android:layout_alignParentRight="true"
+                                    android:text="0"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_tongbangia"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_below="@+id/baocao_lailo_tv_tienthuevat"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Tiền hàng thực bán"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_tientongbangia"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_tienthuevat"
+                                    android:layout_alignParentRight="true"
+                                    android:text="567.943"
+                                    android:textSize="16sp" />
                             </RelativeLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/baocao_lailo_cardview_chiphibanhang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardBackgroundColor="#efefef"
@@ -277,24 +296,176 @@
                             android:padding="10dp">
 
                             <TextView
-                                android:id="@+id/baocao_lailo_tv_hangban"
+                                android:id="@+id/baocao_lailo_tv_chiphibanhang"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:fontFamily="sans-serif-medium"
-                                android:text="Giá vốn hàng bán"
-                                android:textSize="20sp" />
+                                android:text="Chi phí bán hàng"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:id="@+id/baocao_lailo_img_tienchiphibanhang"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentRight="true"
+                                android:padding="7dp"
+                                android:src="@drawable/icon_right" />
 
                             <TextView
-                                android:id="@+id/baocao_lailo_tv_tienhangban"
+                                android:id="@+id/baocao_lailo_tv_tienchiphibanhang"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginRight="11dp"
+                                android:layout_toLeftOf="@+id/baocao_lailo_img_tienchiphibanhang"
+                                android:text="567.943"
+                                android:textColor="@color/teal_200"
+                                android:textSize="22sp" />
+
+                            <RelativeLayout
+                                android:id="@+id/baocao_lailo_rcv_chiphibanhang"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/baocao_lailo_img_tienchiphibanhang"
+                                android:animateLayoutChanges="true"
+                                android:orientation="vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="40dp"
+                                android:visibility="gone">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#CCCCCC" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_thanhtoanbangdiem"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Thanh toán bằng điểm"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_tienthanhtoanbangdien"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="0"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_chiphigiaohangdoitac"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_thanhtoanbangdiem"
+                                    android:layout_alignParentStart="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Chi phí giao hàng đối tác"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_tienchiphigiaohangdoitac"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_thanhtoanbangdiem"
+                                    android:layout_alignParentRight="true"
+                                    android:text="0"
+                                    android:textSize="16sp" />
+
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_giavonhanghoa"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_chiphigiaohangdoitac"
+                                    android:layout_alignParentStart="true"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Giá vốn hàng hóa"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/baocao_lailo_tv_tiengiavonhanghoa"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/baocao_lailo_tv_chiphigiaohangdoitac"
+                                    android:layout_alignParentRight="true"
+                                    android:text="0"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/baocao_lailo_cardview_thunhapkhac"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#efefef"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginTop="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:id="@+id/baocao_lailo_tv_thunhapkhac"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Thu nhập khác"
+                                android:textSize="16sp" />
+
+
+                            <TextView
+                                android:id="@+id/baocao_lailo_tv_tienthunhapkhac"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="37dp"
                                 android:layout_alignParentRight="true"
                                 android:text="567.943"
-                                android:textSize="22sp"
-                                android:textColor="@color/teal_200"
-                                android:layout_marginRight="40dp"/>
 
+                                android:textColor="@color/teal_200"
+                                android:textSize="22sp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/baocao_lailo_cardview_chiphikhac"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#efefef"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="40dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:id="@+id/baocao_lailo_tv_chiphikhac"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Chi phí khác"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/baocao_lailo_tv_tienchiphikhac"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="37dp"
+                                android:layout_alignParentRight="true"
+                                android:text="567.943"
+
+                                android:textColor="@color/teal_200"
+                                android:textSize="22sp" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -304,4 +475,26 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="10dp">
+
+        <TextView
+            style="@style/BaoCao_tvtitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="Lợi nhuận theo sản phẩm"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </androidx.cardview.widget.CardView>
+
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

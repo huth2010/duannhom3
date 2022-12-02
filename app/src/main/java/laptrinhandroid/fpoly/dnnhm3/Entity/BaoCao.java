@@ -25,8 +25,9 @@ public class BaoCao {
     private Date hdbNgayBan;
     private float hdbTongTien;
 
-    //____contrustor
 
+
+    //____contrustor
     public BaoCao() {
     }
 
