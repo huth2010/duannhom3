@@ -22,13 +22,6 @@ public class DAONhanVien {
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public DAONhanVien() {
-        DbSqlServer db = new DbSqlServer(); // hàm khởi tạo để mở kết nối
-        objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
-    }
-
-
-
     public boolean addNhanVien(NhanVien nhanVien) throws SQLException {
         Statement statement = objConn.createStatement();
          String s1 = "Insert into NhanVien(anh, hoTen,gioiTinh,soDT,diaChi,anhPhoToCC,anhXNKcoTATS,email,passwords,token,ngayBD,ngaySinh) values (" +

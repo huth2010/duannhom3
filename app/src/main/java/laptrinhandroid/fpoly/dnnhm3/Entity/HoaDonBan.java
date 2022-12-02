@@ -12,7 +12,6 @@ public class HoaDonBan {
     }
 
 
-
     public void setMaNV(int maNV) {
         this.maNV = maNV;
     }
@@ -21,8 +20,7 @@ public class HoaDonBan {
         this.maKH = maKH;
     }
 
-    public HoaDonBan(int maHDBan, int maNV, int maKH, Date ngayBan, float tongTien) {
-        this.maHDBan = maHDBan;
+    public HoaDonBan(int maNV, int maKH, int anInt, Date ngayBan, float tongTien) {
         this.maNV = maNV;
         this.maKH = maKH;
         this.ngayBan = ngayBan;

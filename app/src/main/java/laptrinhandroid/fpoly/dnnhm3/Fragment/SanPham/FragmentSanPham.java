@@ -1,4 +1,4 @@
- package laptrinhandroid.fpoly.dnnhm3.Fragment.SanPham;
+package laptrinhandroid.fpoly.dnnhm3.Fragment.SanPham;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
