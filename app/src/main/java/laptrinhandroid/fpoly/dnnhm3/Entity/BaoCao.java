@@ -11,6 +11,9 @@ public class BaoCao {
     private String cthdKhuyenMai;
     private float cthdThanhTien;
 
+    private int cthdTongSoLuong;
+    private double cthdTongTien;
+
     //sản phẩm
     private int spMaSP, spLoaiSP;
     private String spTenSP;
@@ -25,8 +28,10 @@ public class BaoCao {
     private Date hdbNgayBan;
     private float hdbTongTien;
 
-    //____contrustor
 
+
+
+    //____contrustor
     public BaoCao() {
     }
 
@@ -39,6 +44,46 @@ public class BaoCao {
         this.spGiaBan = spGiaBan;
         this.hdbNgayBan = hdbNgayBan;
     }
+
+    //tổng sản phẩm đã bán
+    public BaoCao(int cthdMaSp, int cthdTongSoLuong, double cthdTongTien) {
+        this.cthdMaSp = cthdMaSp;
+        this.cthdTongSoLuong = cthdTongSoLuong;
+        this.cthdTongTien = cthdTongTien;
+    }
+
+    //sản phẩm
+    public BaoCao(int spMaSP, int spLoaiSP, String spTenSP, float spGiaNhap, float spGiaBan,
+                  int spSoLuongDaBan, int spSoLuong, String spGhiChu) {
+        this.spMaSP = spMaSP;
+        this.spLoaiSP = spLoaiSP;
+        this.spTenSP = spTenSP;
+        this.spGiaNhap = spGiaNhap;
+        this.spGiaBan = spGiaBan;
+
+        this.spSoLuongDaBan = spSoLuongDaBan;
+        this.spSoLuong = spSoLuong;
+        this.spGhiChu = spGhiChu;
+    }
+
+    //cả sản phẩm và tổng đã bán
+    public BaoCao(int spMaSP, int spLoaiSP, String spTenSP, float spGiaNhap, float spGiaBan,
+                  int spSoLuongDaBan, int spSoLuong, String spGhiChu,int cthdTongSoLuong, double cthdTongTien) {
+
+        this.spMaSP = spMaSP;
+        this.spLoaiSP = spLoaiSP;
+        this.spTenSP = spTenSP;
+        this.spGiaNhap = spGiaNhap;
+        this.spGiaBan = spGiaBan;
+        this.spAnh = spAnh;
+        this.spSoLuongDaBan = spSoLuongDaBan;
+        this.spSoLuong = spSoLuong;
+        this.spGhiChu = spGhiChu;
+        this.cthdTongSoLuong = cthdTongSoLuong;
+        this.cthdTongTien = cthdTongTien;
+    }
+
+
 
     //------------------geter-setter
     public int getCthdId() {
@@ -223,5 +268,37 @@ public class BaoCao {
 
     public void setHdbTongTien(float hdbTongTien) {
         this.hdbTongTien = hdbTongTien;
+    }
+
+    public int getCthdTongSoLuong() {
+        return cthdTongSoLuong;
+    }
+
+    public void setCthdTongSoLuong(int cthdTongSoLuong) {
+        this.cthdTongSoLuong = cthdTongSoLuong;
+    }
+
+    public double getCthdTongTien() {
+        return cthdTongTien;
+    }
+
+    public void setCthdTongTien(double cthdTongTien) {
+        this.cthdTongTien = cthdTongTien;
+    }
+
+    @Override
+    public String toString() {
+        return  ", spMaSP=" + spMaSP +
+                ", spLoaiSP=" + spLoaiSP +
+                ", spTenSP='" + spTenSP + '\'' +
+                ", spGiaNhap=" + spGiaNhap +
+                ", spGiaBan=" + spGiaBan +
+                ", spAnh='" + spAnh + '\'' +
+                ", spSoLuongDaBan=" + spSoLuongDaBan +
+                ", spSoLuong=" + spSoLuong +
+                ", spGhiChu='" + spGhiChu + '\'' +
+                ", cthdTongSoLuong=" + cthdTongSoLuong +
+                ", cthdTongTien=" + cthdTongTien +
+                '}';
     }
 }
