@@ -10,48 +10,12 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/frg_lailo_cardview_time"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:cardCornerRadius="10dp"
-        android:background="@color/gray_white">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            >
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/icon_calender" />
-
-            <TextView
-                android:id="@+id/frg_lailo_tv_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hôm nay"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="20dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/icon_down" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/baocao_lailo_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,14 +33,13 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_margin="10dp"
-                    android:paddingTop="15dp">
+                    android:paddingTop="5dp">
 
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:src="@drawable/icon_khohang"
                         android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
                         android:layout_marginRight="5dp"/>
 
                     <TextView
@@ -91,7 +54,7 @@
 
 
                     <TextView
-                        android:id="@+id/baocao_lailo_loinhuan"
+                        android:id="@+id/khohang_tv_giatritonkho"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -118,11 +81,11 @@
                         android:textColor="@color/gray" />
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/khohang_cv_soluong"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         app:cardCornerRadius="10dp"
-                        android:layout_marginTop="10dp"
-                        >
+                        android:layout_marginTop="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -135,11 +98,16 @@
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 app:cardCornerRadius="30dp">
-                                <ImageView
+                                <TextView
+                                    android:id="@+id/khohang_tv_soluong"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:src="@drawable/icon_soluong"
-                                    android:layout_margin="8dp"/>
+                                    android:gravity="center_vertical|end"
+                                    android:paddingEnd="20dp"
+                                    android:text="10"
+                                    android:textColor="@color/teal_700"
+                                    android:textSize="25sp"
+                                    android:textStyle="bold" />
                             </androidx.cardview.widget.CardView>
 
                             <LinearLayout
@@ -172,6 +140,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/khohang_cv_conban"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         app:cardCornerRadius="10dp"
@@ -189,11 +158,16 @@
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 app:cardCornerRadius="30dp">
-                                <ImageView
+                                <TextView
+                                    android:id="@+id/khohang_tv_conban"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:src="@drawable/icon_conhang"
-                                    android:layout_margin="8dp"/>
+                                    android:gravity="center_vertical|end"
+                                    android:paddingEnd="20dp"
+                                    android:text="10"
+                                    android:textColor="@color/blue"
+                                    android:textSize="25sp"
+                                    android:textStyle="bold" />
                             </androidx.cardview.widget.CardView>
 
                             <LinearLayout
@@ -226,6 +200,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/khohang_cv_hethang"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         app:cardCornerRadius="10dp"
@@ -243,11 +218,16 @@
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 app:cardCornerRadius="30dp">
-                                <ImageView
+                                <TextView
+                                    android:id="@+id/khohang_tv_hethang"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:src="@drawable/icon_hethang"
-                                    android:layout_margin="8dp"/>
+                                    android:gravity="center_vertical|end"
+                                    android:paddingEnd="20dp"
+                                    android:text="0"
+                                    android:textColor="@color/red"
+                                    android:textSize="25sp"
+                                    android:textStyle="bold" />
                             </androidx.cardview.widget.CardView>
 
                             <LinearLayout
@@ -285,5 +265,23 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_gravity="center|bottom"
+        android:layout_margin="10dp">
+
+        <TextView
+            style="@style/BaoCao_tvtitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="Phân tích kho hàng"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
