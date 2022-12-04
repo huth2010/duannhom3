@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -69,6 +70,13 @@ public class login extends AppCompatActivity {
                                             Intent intent = new Intent(login.this, GiaoDienChinh.class);
                                             intent.putExtra("NV", nhanVien);
                                             startActivity(intent);
+
+                                            // lưu dữ liệu tý
+                                            SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                                            editor.putString("gmail", inputEmail.getText().toString());
+                                            editor.putString("pass", inputPassword.getText().toString());
+                                            editor.commit();
                                         }
                                     } catch (SQLException e) {
                                         e.printStackTrace();

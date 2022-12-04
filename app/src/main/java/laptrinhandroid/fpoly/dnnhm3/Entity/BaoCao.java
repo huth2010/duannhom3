@@ -67,7 +67,7 @@ public class BaoCao {
     }
 
     //cả sản phẩm và tổng đã bán
-    public BaoCao(int spMaSP, int spLoaiSP, String spTenSP, float spGiaNhap, float spGiaBan,
+    public BaoCao(int spMaSP, int spLoaiSP, String spTenSP, float spGiaNhap, float spGiaBan, String spAnh,
                   int spSoLuongDaBan, int spSoLuong, String spGhiChu,int cthdTongSoLuong, double cthdTongTien) {
 
         this.spMaSP = spMaSP;

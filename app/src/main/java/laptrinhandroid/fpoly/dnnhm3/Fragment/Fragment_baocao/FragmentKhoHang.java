@@ -1,5 +1,6 @@
 package laptrinhandroid.fpoly.dnnhm3.Fragment.Fragment_baocao;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import laptrinhandroid.fpoly.dnnhm3.Activity.BaoCaoPhanTichActivity;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOBaoCao;
 import laptrinhandroid.fpoly.dnnhm3.Entity.SanPham;
 import laptrinhandroid.fpoly.dnnhm3.R;
@@ -29,6 +32,7 @@ import laptrinhandroid.fpoly.dnnhm3.R;
 public class FragmentKhoHang extends Fragment {
     CardView cvTime, cvSoluong, cvConBan, cvHetHang;
     TextView tvTime, tvGiatritonkho, tvSoluong, tvConBan, tvHetHang;
+    TextView btnPhanTich;
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     DAOBaoCao daoBaoCao;
@@ -53,9 +57,40 @@ public class FragmentKhoHang extends Fragment {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         setUpData();
 
+        btnPhanTich.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), BaoCaoPhanTichActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("is", 0);
+            bundle.putSerializable("data", (Serializable) listSanPham);
+            intent.putExtra("bun",bundle);
+            getContext().startActivity(intent);
+        });
+
+        cvSoluong.setOnClickListener(v ->{
+            Intent intent = new Intent(getContext(), BaoCaoPhanTichActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("is", 1);
+            intent.putExtra("bun",bundle);
+            getContext().startActivity(intent);
+        });
+
+        cvConBan.setOnClickListener(v ->{
+            Intent intent = new Intent(getContext(), BaoCaoPhanTichActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("is", 2);
+            intent.putExtra("bun",bundle);
+            getContext().startActivity(intent);
+        });
+
+        cvHetHang.setOnClickListener(v ->{
+            Intent intent = new Intent(getContext(), BaoCaoPhanTichActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("is", 3);
+            intent.putExtra("bun",bundle);
+            getContext().startActivity(intent);
+        });
 
         return view;
     }
@@ -68,6 +103,7 @@ public class FragmentKhoHang extends Fragment {
         tvSoluong = view.findViewById(R.id.khohang_tv_soluong);
         tvConBan = view.findViewById(R.id.khohang_tv_conban);
         tvHetHang = view.findViewById(R.id.khohang_tv_hethang);
+        btnPhanTich = view.findViewById(R.id.khohang_btn_phantichkhohang);
 
         daoBaoCao = new DAOBaoCao();
         listSanPham = new ArrayList<>();

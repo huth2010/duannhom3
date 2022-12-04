@@ -103,7 +103,7 @@ public class DAOBaoCao {
             rs = statement.executeQuery(sql);
             while (rs.next()){
                 listgetAll.add(new BaoCao(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getFloat(4),
-                        rs.getFloat(5), rs.getInt(7), rs.getInt(8), rs.getString(9),
+                        rs.getFloat(5),rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9),
                         listTop.get(i).getCthdTongSoLuong(), listTop.get(i).getCthdTongTien()));
             }
             rs.close();

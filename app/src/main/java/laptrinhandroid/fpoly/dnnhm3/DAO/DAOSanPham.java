@@ -114,4 +114,39 @@ public class DAOSanPham {
         return list.get(0);
     }
 
+    public List<SanPham> getListSanPhamBaoCao(int isStatus) {
+        String hint = null;
+        switch (isStatus){
+            case 0:{
+                hint = " ORDER BY soLuongDaBan DESC";
+                break;
+            }
+            case 1:{
+                hint = " WHERE soLuong > 0";
+                break;
+            }
+            case 2:{
+                hint = " WHERE soLuong < 0";
+                break;
+            }
+        }
+        List<SanPham> list = new ArrayList<>();
+
+        try {
+
+            Statement statement = objConn.createStatement();
+            String sql = " SELECT * FROM  SanPham " + hint;
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                list.add(new SanPham(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9)));// Đọc dữ liệu từ ResultSet
+            }
+            objConn.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
 }

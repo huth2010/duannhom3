@@ -1,8 +1,9 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class HoaDonBan {
+public class HoaDonBan implements Serializable {
     private int maHDBan;
     private int maNV, maKH;
     private Date ngayBan;

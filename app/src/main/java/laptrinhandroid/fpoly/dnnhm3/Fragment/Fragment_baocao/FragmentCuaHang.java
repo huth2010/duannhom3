@@ -2,6 +2,7 @@ package laptrinhandroid.fpoly.dnnhm3.Fragment.Fragment_baocao;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -26,6 +27,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -37,6 +39,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import laptrinhandroid.fpoly.dnnhm3.Activity.BaoCaoDonhangActivity;
+import laptrinhandroid.fpoly.dnnhm3.Activity.MainActivityhoadon;
 import laptrinhandroid.fpoly.dnnhm3.Adapter.Adapter_baocao.BaocaoAdapterLich;
 import laptrinhandroid.fpoly.dnnhm3.Adapter.Adapter_baocao.TopSanPhamAdapter;
 import laptrinhandroid.fpoly.dnnhm3.DAO.DAOBaoCao;
@@ -49,7 +53,7 @@ public class FragmentCuaHang extends Fragment implements BaocaoAdapterLich.IsenD
     int i =0;
     double doanhthu;
 
-    CardView cvTime;
+    CardView cvTime, cvDonHang, cvDonhuy;
     TextView tvTime,tvDoanhThu, tvDonHang, tvDonHuy;
     GraphView graphView;
     RecyclerView recyclerView;
@@ -80,12 +84,33 @@ public class FragmentCuaHang extends Fragment implements BaocaoAdapterLich.IsenD
             showButtonSheetDialog();
         });
 
+        cvDonHang.setOnClickListener(v ->{
+            Intent intent = new Intent(getContext(), BaoCaoDonhangActivity.class);
+            Bundle bundle = new Bundle();
+            if (listHoaDonBan.size() > 0)  bundle.putSerializable("data", (Serializable) listHoaDonBan);
+            else  bundle.putSerializable("data", null);
+            bundle.putBoolean("is", true);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
+
+        cvDonhuy.setOnClickListener(v ->{
+            Intent intent = new Intent(getContext(), BaoCaoDonhangActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("data", null);
+            bundle.putBoolean("is", false);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
+
         return view;
     }
 
     private void anhxa(View view){
         tvTime = view.findViewById(R.id.frg_cuahang_tv_time);
         cvTime = view.findViewById(R.id.frg_cuahang_cardview_time);
+        cvDonHang = view.findViewById(R.id.cuahang_cv_donhang);
+        cvDonhuy = view.findViewById(R.id.cuahang_cv_donhuy);
         tvDoanhThu = view.findViewById(R.id.cuahang_tv_doanhthu);
         tvDonHang = view.findViewById(R.id.cuahang_tv_soluongdonhang);
         tvDonHuy = view.findViewById(R.id.cuahang_tv_soluongdonhuy);
@@ -180,6 +205,7 @@ public class FragmentCuaHang extends Fragment implements BaocaoAdapterLich.IsenD
             listTopSp.addAll(daoBaoCao.getListTopSanPham(positon ,date));
             setUpData();
             setUpChart();
+            setUpTopSP();
             Log.i("lengthListlailo",  "Length " + listHoaDonBan.size() );
             Log.i("lengthListlailo",  "Length TOP SP " + listTopSp.toString() );
         } catch (SQLException e) {
@@ -253,6 +279,15 @@ public class FragmentCuaHang extends Fragment implements BaocaoAdapterLich.IsenD
         return formatter.format(aDouble);
     }
 
+    private void setUpTopSP(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        topSanPhamAdapter = new TopSanPhamAdapter(getContext(), listTopSp, 0);
+        recyclerView.setAdapter(topSanPhamAdapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));   //kẻ ngang
+
+    }
+
     private void setUpChart(){
 
         line1 = new LineGraphSeries<>(getValuesChart());
@@ -260,12 +295,6 @@ public class FragmentCuaHang extends Fragment implements BaocaoAdapterLich.IsenD
         graphView.addSeries(line1);
         line1.setColor(getResources().getColor(R.color.teal_200));
         graphView.getViewport().setXAxisBoundsManual(true);     // cho biểu đồ rộng bằng item
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        topSanPhamAdapter = new TopSanPhamAdapter(getContext(), listTopSp);
-        recyclerView.setAdapter(topSanPhamAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));   //kẻ ngang
 
     }
 

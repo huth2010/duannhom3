@@ -16,6 +16,7 @@
 package laptrinhandroid.fpoly.dnnhm3.Adapter.Adapter_baocao;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,16 +32,22 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
+import laptrinhandroid.fpoly.dnnhm3.ConvertImg;
 import laptrinhandroid.fpoly.dnnhm3.Entity.BaoCao;
 import laptrinhandroid.fpoly.dnnhm3.R;
 
 public class TopSanPhamAdapter extends  RecyclerView.Adapter<TopSanPhamAdapter.ViewHolder> {
     Context context;
     List<BaoCao> list;
+    int isCuaHang;
 
-    public TopSanPhamAdapter(Context context, List<BaoCao> list){
+    ConvertImg convertImg;
+
+    public TopSanPhamAdapter(Context context, List<BaoCao> list, int isCuahHang){
         this.context = context;
         this.list = list;
+        this.isCuaHang = isCuahHang;
+        convertImg = new ConvertImg();
     }
 
 
@@ -53,10 +60,15 @@ public class TopSanPhamAdapter extends  RecyclerView.Adapter<TopSanPhamAdapter.V
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvSTT.setText(String.valueOf(position+1));
-        holder.tvName.setText(String.valueOf(list.get(position).getSpTenSP()));
-        holder.tvSoluong.setText("Sl: "+ String.valueOf(list.get(position).getCthdTongSoLuong()));
-        holder.tvTien.setText("Doanh thu: "+ String.valueOf(forMatNumber(list.get(position).getCthdTongTien())+ " ₫"));
+        switch (isCuaHang){
+            case 0:{
+                SetDataTopSp(holder, position);
+                break;
+            }
+            case 1:{
+                break;
+            }
+        }
 
     }
 
@@ -87,4 +99,12 @@ public class TopSanPhamAdapter extends  RecyclerView.Adapter<TopSanPhamAdapter.V
 
         return formatter.format(aDouble);
     }
+
+     private void SetDataTopSp(ViewHolder holder, int position){
+         holder.tvSTT.setText(String.valueOf(position+1));
+         holder.tvName.setText(String.valueOf(list.get(position).getSpTenSP()));
+         holder.tvSoluong.setText("Sl: "+ String.valueOf(list.get(position).getCthdTongSoLuong()));
+         holder.tvTien.setText("Doanh thu: "+ String.valueOf(forMatNumber(list.get(position).getCthdTongTien())+ " ₫"));
+         holder.imgAnh.setImageBitmap(ConvertImg.convertBaseStringToBitmap(list.get(position).getSpAnh()));
+     }
 }

@@ -1,6 +1,8 @@
 package laptrinhandroid.fpoly.dnnhm3.Entity;
 
-public class SanPham {
+import java.io.Serializable;
+
+public class SanPham implements Serializable {
     private int maSP, loaiSP;
     private String tenSP;
     private float giaNhap, giaBan;
