@@ -281,7 +281,9 @@ public class FragmentThuChi extends Fragment implements BaocaoAdapterLich.IsenDa
         graphView.addSeries(line1);
         if (isThu)line1.setColor(getResources().getColor(R.color.teal_200));
         else line1.setColor(getResources().getColor(R.color.red));
+        line1.setDrawBackground(true);
         graphView.getViewport().setXAxisBoundsManual(true);     // cho biểu đồ rộng bằng item
+
     }
 
     private void setUpData(boolean isThu){

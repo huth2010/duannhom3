@@ -274,12 +274,13 @@
         android:layout_margin="10dp">
 
         <TextView
+            android:id="@+id/khohang_btn_phantichkhohang"
             style="@style/BaoCao_tvtitle"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@color/green"
             android:gravity="center"
-            android:text="Phân tích kho hàng"
+            android:text="Chi tiết kho hàng"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
     </androidx.cardview.widget.CardView>

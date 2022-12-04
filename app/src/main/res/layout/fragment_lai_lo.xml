@@ -481,7 +481,8 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
         android:layout_gravity="center|bottom"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:visibility="gone">
 
         <TextView
             style="@style/BaoCao_tvtitle"
