@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import laptrinhandroid.fpoly.dnnhm3.Entity.HoaDonBan;
-import laptrinhandroid.fpoly.dnnhm3.Entity.NhanVien;
 import laptrinhandroid.fpoly.dnnhm3.JDBC.DbSqlServer;
 
 public class DAOhoadon {
     Connection connection;
+    DbSqlServer db = new DbSqlServer();
     public DAOhoadon() {
         DbSqlServer db = new DbSqlServer(); // hàm khởi tạo để mở kết nối
         connection = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
